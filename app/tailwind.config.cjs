@@ -10,7 +10,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Inter', 'ui-sans-serif'],
-        overpass: ['Overpass', 'ui-sans-serif']
+        overpass: ['Overpass', 'ui-sans-serif'],
+        borderWidth: ['before'],
+        margin: ['before'],
       },
       colors: {
         current: 'currentColor',

@@ -1,5 +1,13 @@
 import { DOCS_URL, BLOG_URL } from '../../shared/constants';
+import templates from '../static/templates.png';
+import editor from '../static/editor.png';
+import signin from '../static/signin.png';
+import publish from '../static/publish.png';
 import daBoiAvatar from '../static/da-boi.png';
+import seventy from '../static/70.png';
+import sixtytwo from '../static/62.png';
+import thirtyfour from '../static/34.png';
+import eight from '../static/08.png';
 import avatarPlaceholder from '../static/avatar-placeholder.png';
 
 export const navigation = [
@@ -11,53 +19,50 @@ export const navigation = [
 ];
 export const features = [
   {
-    name: 'Cool Feature #1',
-    description: 'Describe your cool feature here.',
-    icon: '🤝',
+    name: 'Ridiculously Easy',
+    description: 'Easily create beautiful giveaways, contests, and sweepstakes, and customize them exatly to your liking.',
+    img: signin,
   },
   {
-    name: 'Cool Feature #2',
-    description: 'Describe your cool feature here.',
-    icon: '🔐',
+    name: 'Prebuilt No-Code Templates',
+    description: 'Get follwers and leads immediately with beautiful templates that fit every need.',
+    img: templates,
   },
   {
-    name: 'Cool Feature #3',
-    description: 'Describe your cool feature here.',
-    icon: '🥞',
+    name: 'Fully Customizeable',
+    description: 'Make your raffles exactly as you like them with our intuitive drag and drop editor.',
+    img: editor,
   },
   {
-    name: 'Cool Feature #4',
-    description: 'Describe your cool feature here.',
-    icon: '💸',
+    name: 'Wide Range of Integrations',
+    description: 'Whether its social media, emails, or referrals, Raffle Leader has you covered.',
+    img: publish,
   },
 ];
 
 export const stats = [
   {
-    name: 'Cool Feature #1',
-    description: 'Describe your cool feature here.',
-    icon: '🤝',
-    href: DOCS_URL,
+    name: '62',
+    description: '62.31% of people share the contest with a friend.',
+    img: seventy,
   },
   {
-    name: 'Cool Feature #2',
-    description: 'Describe your cool feature here.',
-    icon: '🔐',
-    href: DOCS_URL,
+    name: '34',
+    description: 'Contests have a conversion rate of 34%, higher than any other content type.',
+    img: sixtytwo,
   },
   {
-    name: 'Cool Feature #3',
-    description: 'Describe your cool feature here.',
-    icon: '🥞',
-    href: DOCS_URL,
+    name: '70',
+    description: `Instagram accounts that hold contests grow 70% faster than those that don't.`,
+    img: thirtyfour,
   },
   {
-    name: 'Cool Feature #4',
-    description: 'Describe your cool feature here.',
-    icon: '💸',
-    href: DOCS_URL,
+    name: '08',
+    description: 'Contest emails have a CTR of 8%, 5.5% higher than other emails.',
+    img: eight,
   },
 ];
+
 export const testimonials = [
   {
     name: 'Da Boi',
@@ -90,6 +95,7 @@ export const faqs = [
     href: 'https://en.wikipedia.org/wiki/42_(number)',
   },
 ];
+
 export const footerNavigation = {
   app: [
     { name: 'Documentation', href: DOCS_URL },
