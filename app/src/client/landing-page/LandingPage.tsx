@@ -5,25 +5,24 @@ import { Dialog } from '@headlessui/react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { HiBars3 } from 'react-icons/hi2';
 import { BiLogIn } from 'react-icons/bi';
-import logo from '../static/logo.png';
-import openSaasBanner from '../static/open-saas-banner.png';
-import { features, navigation, faqs, footerNavigation, testimonials } from './contentSections';
+import logo from '../static/TEXT-LOGO.svg';
+import openSaasBanner from '../static/hero-image.png';
+import { features, stats, navigation, faqs, footerNavigation, testimonials } from './contentSections';
 import DropdownUser from '../components/DropdownUser';
 import { DOCS_URL } from '../../shared/constants';
 import { UserMenuItems } from '../components/UserMenuItems';
-import DarkModeSwitcher from '../admin/components/DarkModeSwitcher';
 
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const { data: user, isLoading: isUserLoading } = useAuth();
 
-  const NavLogo = () => <img className='h-8 w-8' src={logo} alt='Your SaaS App' />;
+  const NavLogo = () => <img className='h-15 w-30' src={logo} alt='Your SaaS App' />;
 
   return (
     <div className='bg-white dark:text-white dark:bg-boxdark-2'>
       {/* Header */}
-      <header className='absolute inset-x-0 top-0 z-50 dark:bg-boxdark-2'>
+      <header className='shadow-lg absolute inset-x-0 top-0 z-50 dark:bg-boxdark-2'>
         <nav className='flex items-center justify-between p-6 lg:px-8' aria-label='Global'>
           <div className='flex items-center lg:flex-1'>
             <a
@@ -31,7 +30,6 @@ export default function LandingPage() {
               className='flex items-center -m-1.5 p-1.5 text-gray-900 duration-300 ease-in-out hover:text-yellow-500'
             >
               <NavLogo />
-              <span className='ml-2 text-sm font-semibold leading-6 dark:text-white'>Your Saas</span>
             </a>
           </div>
           <div className='flex lg:hidden'>
@@ -49,21 +47,19 @@ export default function LandingPage() {
               <a
                 key={item.name}
                 href={item.href}
-                className='text-sm font-semibold leading-6 text-gray-900 duration-300 ease-in-out hover:text-yellow-500 dark:text-white'
+                className='text-sm font-medium leading-6 text-gray-900 duration-300 ease-in-out hover:text-raffleleader dark:text-white'
               >
                 {item.name}
               </a>
             ))}
           </div>
           <div className='hidden lg:flex lg:flex-1 lg:justify-end lg:align-end'>
-            {/* <!-- Dark Mode Toggler --> */}
             <div className='flex items-center gap-3 2xsm:gap-7'>
               <ul className='flex justify-center items-center gap-2 2xsm:gap-4'>
-                <DarkModeSwitcher />
               </ul>
               {isUserLoading ? null : !user ? (
                 <Link to='/login'>
-                  <div className='flex justify-end items-center duration-300 ease-in-out text-gray-900 hover:text-yellow-500 dark:text-white'>
+                  <div className='flex justify-end items-center duration-300 ease-in-out text-gray-900 hover:text-raffleleader dark:text-white'>
                     Log in <BiLogIn size='1.1rem' className='ml-1' />
                   </div>
                 </Link>
@@ -115,24 +111,20 @@ export default function LandingPage() {
                     <UserMenuItems user={user} />
                   )}
                 </div>
-                <div className='py-6'>
-                  <DarkModeSwitcher />
-                </div>
               </div>
             </div>
           </Dialog.Panel>
         </Dialog>
       </header>
-
       <main className='isolate dark:bg-boxdark-2'>
         {/* Hero section */}
-        <div className='relative pt-14 w-full '>
+        <div className='shado-xl mx-auto max-w-7xl sm:px-6 lg:px-8 relative pt-14 w-full'>
           <div
             className='absolute top-0 right-0 -z-10 transform-gpu overflow-hidden w-full blur-3xl sm:top-0 '
             aria-hidden='true'
           >
             <div
-              className='aspect-[1020/880] w-[55rem] flex-none sm:right-1/4 sm:translate-x-1/2 dark:hidden bg-gradient-to-tr from-amber-400 to-purple-300 opacity-40'
+              className='aspect-[1020/880] w-[55rem] flex-none sm:right-1/4 sm:translate-x-1/2 dark:hidden bg-gradient-to-tr from-white to-raffleleader opacity-20'
               style={{
                 clipPath: 'polygon(80% 20%, 90% 55%, 50% 100%, 70% 30%, 20% 50%, 50% 0)',
               }}
@@ -143,7 +135,7 @@ export default function LandingPage() {
             aria-hidden='true'
           >
             <div
-              className='relative aspect-[1020/880] sm:-left-3/4 sm:translate-x-1/4 dark:hidden bg-gradient-to-br from-amber-400 to-purple-300  opacity-50 w-[72.1875rem]'
+              className='relative aspect-[1020/880] sm:-left-3/4 sm:translate-x-1/4 dark:hidden bg-gradient-to-br from-white to-raffleleader  opacity-30 w-[72.1875rem]'
               style={{
                 clipPath: 'ellipse(80% 30% at 80% 50%)',
               }}
@@ -152,18 +144,20 @@ export default function LandingPage() {
           <div className='py-24 sm:py-32'>
             <div className='mx-auto max-w-8xl px-6 lg:px-8'>
               <div className='lg:mb-18 mx-auto max-w-3xl text-center'>
-                <h1 className='text-4xl font-bold text-gray-900 sm:text-6xl dark:text-white'>
-                  Some <span className='italic'>cool</span> words about your product
+                <h1 className='font-overpass text-9xl font-medium text-gray-900 sm:text-6xl dark:text-white'>
+                  Get leads faster <br>
+                  </br>than ever before.
                 </h1>
                 <p className='mt-6 mx-auto max-w-2xl text-lg leading-8 text-gray-600 dark:text-white'>
-                  With some more exciting words about your product!
+                  Put your <span className='text-raffleleader'>growth on autopilot</span> with customizable,<br>
+                  </br> viral giveaways and contests
                 </p>
                 <div className='mt-10 flex items-center justify-center gap-x-6'>
                   <a
                     href={DOCS_URL}
-                    className='rounded-md px-3.5 py-2.5 text-sm font-semibold text-gray-700 ring-1 ring-inset ring-gray-200 hover:ring-2 hover:ring-yellow-300 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:text-white'
+                    className='rounded-lg px-17 py-4 text-sm font-semibold bg-raffleleader text-white ring-1 ring-inset ring-gray-200 hover:ring-2 hover:ring-gray-200 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:text-white'
                   >
-                    Get Started <span aria-hidden='true'>→</span>
+                    Get Started
                   </a>
                 </div>
               </div>
@@ -174,7 +168,7 @@ export default function LandingPage() {
                     alt='App screenshot'
                     width={2432}
                     height={1442}
-                    className='rounded-md shadow-2xl ring-1 ring-gray-900/10'
+                    className='rounded-xl shadow-2xl ring-1 ring-gray-900/10 border-2 border-slate-600'
                   />
                 </div>
               </div>
@@ -182,13 +176,9 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* Clients section */}
-        <div className='mt-12 mx-auto max-w-7xl px-6 lg:px-8 flex flex-col items-between gap-y-6'>
-          <h2 className='mb-6 text-center font-semibold tracking-wide text-gray-500 dark:text-white'>
-            Built with / Used by:
-          </h2>
-
-          <div className='mx-auto grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-12 sm:max-w-xl md:grid-cols-4 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none'>
+        {/* Features section */}
+        <div className='mt-12 flex flex-col items-between gap-y-6 bg-gradient-to-b from-raffleleader to-violet-400'>
+          <div className='grid max-w-lg grid-cols-2 items-center gap-x-8 gap-y-12 sm:max-w-xl md:grid-cols-1 sm:gap-x-10 sm:gap-y-14 lg:mx-0 lg:max-w-none'>
             <div className='flex justify-center col-span-1 max-h-12 w-full object-contain dark:opacity-80'>
               <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 273 191'>
                 <defs>
@@ -249,8 +239,8 @@ export default function LandingPage() {
           </div>
         </div>
 
-        {/* Feature section */}
-        <div id='features' className='mx-auto mt-48 max-w-7xl px-6 lg:px-8'>
+        {/* Stats section */}
+        <div id='stats' className='mx-auto max-w-7xl sm:px-6 lg:px-8 mt-48 max-w-7xl px-6 lg:px-8'>
           <div className='mx-auto max-w-2xl text-center'>
             <p className='mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-white'>
               The <span className='text-yellow-500'>Best</span> Features
@@ -262,15 +252,15 @@ export default function LandingPage() {
           </div>
           <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl'>
             <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16'>
-              {features.map((feature) => (
-                <div key={feature.name} className='relative pl-16'>
+              {stats.map((stat) => (
+                <div key={stat.name} className='relative pl-16'>
                   <dt className='text-base font-semibold leading-7 text-gray-900 dark:text-white'>
                     <div className='absolute left-0 top-0 flex h-10 w-10 items-center justify-center border border-yellow-400 bg-yellow-100/50 dark:bg-boxdark rounded-lg'>
-                      <div className='text-2xl'>{feature.icon}</div>
+                      <div className='text-2xl'>{stat.icon}</div>
                     </div>
-                    {feature.name}
+                    {stat.name}
                   </dt>
-                  <dd className='mt-2 text-base leading-7 text-gray-600 dark:text-white'>{feature.description}</dd>
+                  <dd className='mt-2 text-base leading-7 text-gray-600 dark:text-white'>{stat.description}</dd>
                 </div>
               ))}
             </dl>

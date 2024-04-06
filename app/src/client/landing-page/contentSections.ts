@@ -4,11 +4,35 @@ import avatarPlaceholder from '../static/avatar-placeholder.png';
 
 export const navigation = [
   { name: 'Features', href: '#features' },
+  { name: 'Stats', href: '#stats' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Documentation', href: DOCS_URL },
   { name: 'Blog', href: BLOG_URL },
 ];
 export const features = [
+  {
+    name: 'Cool Feature #1',
+    description: 'Describe your cool feature here.',
+    icon: '🤝',
+  },
+  {
+    name: 'Cool Feature #2',
+    description: 'Describe your cool feature here.',
+    icon: '🔐',
+  },
+  {
+    name: 'Cool Feature #3',
+    description: 'Describe your cool feature here.',
+    icon: '🥞',
+  },
+  {
+    name: 'Cool Feature #4',
+    description: 'Describe your cool feature here.',
+    icon: '💸',
+  },
+];
+
+export const stats = [
   {
     name: 'Cool Feature #1',
     description: 'Describe your cool feature here.',

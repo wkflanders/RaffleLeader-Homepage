@@ -9,7 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        satoshi: ['Satoshi', 'sans-serif'],
+        sans: ['Inter', 'ui-sans-serif'],
+        overpass: ['Overpass', 'ui-sans-serif']
       },
       colors: {
         current: 'currentColor',
@@ -24,6 +25,7 @@ module.exports = {
         primary: '#3C50E0',
         secondary: '#80CAEE',
         stroke: '#E2E8F0',
+        raffleleader: '#1501FE',
         // gray: '#000',
         // graydark: '#333A48',
         // 'gray-2': '#F7F9FC',

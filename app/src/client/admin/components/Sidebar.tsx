@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import Logo from '../../static/logo.png';
+import Logo from '../../static/TEXT-LOGO.svg';
 import SidebarLinkGroup from './SidebarLinkGroup';
 import { cn } from '../../../shared/utils';
 
