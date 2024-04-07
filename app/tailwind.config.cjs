@@ -14,6 +14,9 @@ module.exports = {
         borderWidth: ['before'],
         margin: ['before'],
       },
+      backgroundImage: {
+        'rl_wave': "url('./static/wave.svg')" 
+      },
       colors: {
         current: 'currentColor',
         transparent: 'transparent',
@@ -28,6 +31,7 @@ module.exports = {
         secondary: '#80CAEE',
         stroke: '#E2E8F0',
         raffleleader: '#1501FE',
+        rldark: '#1000CE',
         // gray: '#000',
         // graydark: '#333A48',
         // 'gray-2': '#F7F9FC',

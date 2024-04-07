@@ -1,35 +1,11 @@
 import { useAuth } from 'wasp/client/auth';
 import { stripePayment } from 'wasp/client/operations';
 import { TierIds, STRIPE_CUSTOMER_PORTAL_LINK } from '../../shared/constants';
+import { tiers } from '../landing-page/contentSections';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { cn } from '../../shared/utils';
-
-export const tiers = [
-  {
-    name: 'Hobby',
-    id: TierIds.HOBBY,
-    price: '$9.99',
-    description: 'All you need to get started',
-    features: ['Limited monthly usage', 'Basic support'],
-  },
-  {
-    name: 'Pro',
-    id: TierIds.PRO,
-    price: '$19.99',
-    description: 'Our most popular plan',
-    features: ['Unlimited monthly usage', 'Priority customer support'],
-    bestDeal: true,
-  },
-  {
-    name: '10 Credits',
-    id: TierIds.CREDITS,
-    price: '$9.99',
-    description: 'One-time purchase of 10 credits for your account',
-    features: ['Use credits for e.g. OpenAI API calls', 'No expiration date'],
-  },
-];
 
 const PricingPage = () => {
   const [isStripePaymentLoading, setIsStripePaymentLoading] = useState<boolean | string>(false);

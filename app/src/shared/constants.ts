@@ -1,9 +1,8 @@
 import { z } from 'zod';
 
 export enum TierIds {
-  HOBBY = 'hobby-tier',
-  PRO = 'pro-tier',
-  CREDITS = 'credits',
+  YEARLY = 'yearly-tier',
+  LIFETIME = 'lifetime-tier',
 }
 
 export const DOCS_URL = 'https://docs.opensaas.sh';

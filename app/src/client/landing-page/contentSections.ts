@@ -1,18 +1,15 @@
 import { DOCS_URL, BLOG_URL } from '../../shared/constants';
+import { TierIds } from '../../shared/constants';
 import templates from '../static/templates.png';
 import editor from '../static/editor.png';
 import signin from '../static/signin.png';
 import publish from '../static/publish.png';
-import daBoiAvatar from '../static/da-boi.png';
 import seventy from '../static/70.png';
 import sixtytwo from '../static/62.png';
 import thirtyfour from '../static/34.png';
 import eight from '../static/08.png';
-import avatarPlaceholder from '../static/avatar-placeholder.png';
 
 export const navigation = [
-  { name: 'Features', href: '#features' },
-  { name: 'Stats', href: '#stats' },
   { name: 'Pricing', href: '/pricing' },
   { name: 'Documentation', href: DOCS_URL },
   { name: 'Blog', href: BLOG_URL },
@@ -63,36 +60,30 @@ export const stats = [
   },
 ];
 
-export const testimonials = [
+export const tiers = [
   {
-    name: 'Da Boi',
-    role: 'Wasp Mascot',
-    avatarSrc: daBoiAvatar,
-    socialUrl: 'https://twitter.com/wasplang',
-    quote: "I don't even know how to code. I'm just a plushie.",
+    name: 'YEARLY',
+    id: TierIds.YEARLY,
+    price: '$97',
+    description: '$197',
+    features: ['Unlimited Sites', 'Pre-Built Templates', 'Customizeable Giveaways', 'Email and Social Media Integrations', '14-day Money-Back Guarantee'],
   },
   {
-    name: 'Mr. Foobar',
-    role: 'Founder @ Cool Startup',
-    avatarSrc: avatarPlaceholder,
-    socialUrl: '',
-    quote: 'This product makes me cooler than I already am.',
-  },
-  {
-    name: 'Jamie',
-    role: 'Happy Customer',
-    avatarSrc: avatarPlaceholder,
-    socialUrl: '#',
-    quote: 'My cats love it!',
+    name: 'LIFETIME',
+    id: TierIds.LIFETIME,
+    price: '$397',
+    description: '$497',
+    features: ['Unlimited Sites', 'Lifetime Updates', 'Lifetime Support', 'One-Time Payment', 'No Raffle Leader Branding'],
+    bestDeal: true,
   },
 ];
 
 export const faqs = [
   {
     id: 1,
-    question: 'Whats the meaning of life?',
-    answer: '42.',
-    href: 'https://en.wikipedia.org/wiki/42_(number)',
+    question: 'Whats a good example FAQ to throw up?',
+    answer: 'No idea, ask Stephen.',
+    href: DOCS_URL,
   },
 ];
 
