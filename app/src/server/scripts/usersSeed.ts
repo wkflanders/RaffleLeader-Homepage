@@ -26,7 +26,7 @@ export function createRandomUser() {
     datePaid: faker.date.recent(),
     credits: faker.number.int({ min: 0, max: 3 }),
     checkoutSessionId: null,
-    subscriptionTier: faker.helpers.arrayElement([TierIds.HOBBY, TierIds.PRO]),
+    subscriptionTier: faker.helpers.arrayElement([TierIds.YEARLY, TierIds.LIFETIME]),
   };
   return user;
 }

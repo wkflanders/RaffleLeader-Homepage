@@ -15,7 +15,7 @@ module.exports = {
         margin: ['before'],
       },
       backgroundImage: {
-        'rl_wave': "url('./static/wave.svg')" 
+        'rl_wave': "url('./static/wave.svg')"
       },
       colors: {
         current: 'currentColor',

@@ -78,7 +78,7 @@ const PricingPage = () => {
                 <p className='mt-6 flex items-baseline gap-x-1 dark:text-white'>
                   <span className='text-4xl font-bold tracking-tight text-gray-900 dark:text-white'>{tier.price}</span>
                   <span className='text-sm font-semibold leading-6 text-gray-600 dark:text-white'>
-                    {tier.id !== TierIds.CREDITS && '/month'}
+                    {tier.id !== TierIds.LIFETIME && '/month'}
                   </span>
                 </p>
                 <ul role='list' className='mt-8 space-y-3 text-sm leading-6 text-gray-600 dark:text-white'>

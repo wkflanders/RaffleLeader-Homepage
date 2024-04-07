@@ -41,8 +41,8 @@ export const stripeWebhook: StripeWebhook = async (request, response, context) =
        * make sure to configure them in the Stripe dashboard first!
        * see: https://docs.opensaas.sh/guides/stripe-integration/
        */
-      if (line_items?.data[0]?.price?.id === process.env.HOBBY_SUBSCRIPTION_PRICE_ID) {
-        console.log('Hobby subscription purchased');
+      if (line_items?.data[0]?.price?.id === process.env.YEARLY_SUBSCRIPTION_PRICE_ID) {
+        console.log('YEARLY subscription purchased');
         await context.entities.User.updateMany({
           where: {
             stripeId: userStripeId,
@@ -50,10 +50,10 @@ export const stripeWebhook: StripeWebhook = async (request, response, context) =
           data: {
             hasPaid: true,
             datePaid: new Date(),
-            subscriptionTier: TierIds.HOBBY,
+            subscriptionTier: TierIds.YEARLY,
           },
         });
-      } else if (line_items?.data[0]?.price?.id === process.env.PRO_SUBSCRIPTION_PRICE_ID) {
+      } else if (line_items?.data[0]?.price?.id === process.env.LIFETIME_SUBSCRIPTION_PRICE_ID) {
         console.log('Pro subscription purchased');
         await context.entities.User.updateMany({
           where: {
@@ -62,20 +62,7 @@ export const stripeWebhook: StripeWebhook = async (request, response, context) =
           data: {
             hasPaid: true,
             datePaid: new Date(),
-            subscriptionTier: TierIds.PRO,
-          },
-        });
-      } else if (line_items?.data[0]?.price?.id === process.env.CREDITS_PRICE_ID) {
-        console.log('Credits purchased');
-        await context.entities.User.updateMany({
-          where: {
-            stripeId: userStripeId,
-          },
-          data: {
-            credits: {
-              increment: 10,
-            },
-            datePaid: new Date(),
+            subscriptionTier: TierIds.LIFETIME,
           },
         });
       } else {
