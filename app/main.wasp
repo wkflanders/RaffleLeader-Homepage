@@ -2,12 +2,12 @@ app OpenSaaS {
   wasp: {
     version: "^0.13.0"
   },
-  title: "My Open SaaS App",
+  title: "Raffle Leader SaaS",
   head: [
         "<meta property='og:type' content='website' />",
-        "<meta property='og:title' content='My Open SaaS App' />",
-        "<meta property='og:url' content='https://opensaas.sh' />", 
-        "<meta property='og:description' content='I made a SaaS App. Buy my stuff.' />",
+        "<meta property='og:title' content='Raffle Leader SaaS' />",
+        "<meta property='og:url' content='https://raffleleader.com' />", 
+        "<meta property='og:description' content='Raffle Leader is the leader in lead marketing.' />",
         "<meta property='og:image' content='https://opensaas.sh/public-banner.png' />",
         "<meta name='twitter:image' content='https://opensaas.sh/public-banner.png' />", 
         "<meta name='twitter:image:width' content='800' />",
