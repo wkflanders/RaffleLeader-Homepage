@@ -1,16 +1,16 @@
 import { Link } from 'wasp/client/router';
 import { useAuth } from 'wasp/client/auth';
 import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Dialog } from '@headlessui/react';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { HiBars3 } from 'react-icons/hi2';
 import { BiLogIn } from 'react-icons/bi';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import logo from '../static/TEXT-LOGO.svg';
-import wave from '../static/trywave.svg';
 import openSaasBanner from '../static/hero-image.png';
 import { features, stats, navigation, faqs, footerNavigation, tiers } from './contentSections';
-import { TierIds, STRIPE_CUSTOMER_PORTAL_LINK } from '../../shared/constants';
+import { TierIds } from '../../shared/constants';
 import DropdownUser from '../components/DropdownUser';
 import { DOCS_URL } from '../../shared/constants';
 import { UserMenuItems } from '../components/UserMenuItems';
@@ -21,13 +21,21 @@ export default function LandingPage() {
 
   const { data: user, isLoading: isUserLoading } = useAuth();
 
-  const NavLogo = () => <img className='h-15 w-30' src={logo} alt='Your SaaS App' />;
+  const NavLogo = () => <img className='h-15 w-30' src={logo} alt='Raffle Leader' />;
+
+  const history = useHistory();
+
+  async function handlePricingClick(){
+    history.push('/pricing');
+    console.log('test');
+    return;
+  }
 
   return (
     <div className='overflow-x-hidden bg-white dark:text-white dark:bg-boxdark-2'>
       {/* Header */}
       <header className='shadow-lg absolute inset-x-0 top-0 z-50 dark:bg-boxdark-2'>
-        <nav className='flex items-center justify-between p-6 lg:px-8' aria-label='Global'>
+        <nav className='flex items-center justify-between p-2 lg:px-8' aria-label='Global'>
           <div className='flex items-center lg:flex-1'>
             <a
               href='/'
@@ -285,7 +293,7 @@ export default function LandingPage() {
               </div>
               {!!user && user.hasPaid ? (
                 <a
-                  href={STRIPE_CUSTOMER_PORTAL_LINK}
+                  href={'/pricing'}
                   aria-describedby='manage-subscription'
                   className={cn(
                     'mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-raffleleader',
@@ -299,6 +307,7 @@ export default function LandingPage() {
                 </a>
               ) : (
                 <button
+                  onClick={handlePricingClick}
                   aria-describedby={tier.id}
                   className={cn(
                     {
@@ -351,7 +360,7 @@ export default function LandingPage() {
       </main>
 
       {/* Footer */}
-      <div className='mx-auto dark:bg-boxdark-2'>
+      <div className='-mt-2 mx-auto dark:bg-boxdark-2'>
         <footer
           aria-labelledby='footer-heading'
           className='relative bg-rldark py-24'
@@ -373,7 +382,7 @@ export default function LandingPage() {
               </ul>
             </div>
             <div>
-              <h3 className='text-sm font-semibold leading-6 text-gray-300'>©2023 RAFFLE LEADER, INC.</h3>
+              <h3 className='text-sm font-semibold leading-6 text-gray-300'>©2024 RAFFLE LEADER, INC.</h3>
               <ul role='list' className='mt-6 space-y-4'>
                 {footerNavigation.company.map((item) => (
                   <li key={item.name}>
