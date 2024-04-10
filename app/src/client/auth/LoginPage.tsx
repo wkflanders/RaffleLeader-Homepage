@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthWrapper } from './authWrapper';
+import { AuthApperance } from '../../authAppearance';
 
 export default function Login() {
   const history = useHistory();
@@ -17,7 +18,9 @@ export default function Login() {
 
   return (
     <AuthWrapper>
-      <LoginForm />
+      <LoginForm 
+        appearance={AuthApperance}
+      />
       <br />
       <span className='text-sm font-medium text-gray-900 dark:text-gray-900'>
         Don't have an account yet?{' '}
