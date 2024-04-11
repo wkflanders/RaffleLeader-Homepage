@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthWrapper } from './authWrapper';
 import { AuthApperance } from '../../authAppearance';
+import Logo from '../static/BANNER-LOGO.svg';
 
 export default function Login() {
   const history = useHistory();
@@ -20,20 +21,21 @@ export default function Login() {
     <AuthWrapper>
       <LoginForm 
         appearance={AuthApperance}
+        logo={Logo}
       />
       <br />
       <span className='text-sm font-medium text-gray-900 dark:text-gray-900'>
         Don't have an account yet?{' '}
-        <Link to='/signup' className='underline'>
-          go to signup
+        <Link to='/signup' className='font-bold underline'>
+          Signup
         </Link>
         .
       </span>
       <br />
       <span className='text-sm font-medium text-gray-900'>
         Forgot your password?{' '}
-        <Link to='/request-password-reset' className='underline'>
-          reset it
+        <Link to='/request-password-reset' className='font-bold underline'>
+          Reset it
         </Link>
         .
       </span>
