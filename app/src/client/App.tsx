@@ -49,7 +49,7 @@ export default function App({ children }: { children: ReactNode }) {
         ) : (
           <>
             {shouldDisplayAppNavBar && <AppNavBar />}
-            <div className=''>{children}</div>
+            <div className='min-h-screen'>{children}</div>
           </>
         )}
       </div>
