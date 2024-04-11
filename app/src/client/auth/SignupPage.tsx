@@ -21,6 +21,18 @@ export function Signup() {
         .
       </span>
       <br />
+      <span className='text-sm font-medium text-gray-600'>
+        You acknolwedge that you read, and agree to our&nbsp;
+        <Link to='/' className='underline text-sky-600'>
+          Privacy Policy 
+        </Link>
+        &nbsp;and our&nbsp; 
+        <Link to='/' className='underline text-sky-600'>
+          Terms of Service
+        </Link>
+        .
+      </span>
+      <br />
     </AuthWrapper>
   );
 }
