@@ -27,7 +27,6 @@ export default function LandingPage() {
 
   async function handlePricingClick(){
     history.push('/pricing');
-    console.log('test');
     return;
   }
 
@@ -166,7 +165,7 @@ export default function LandingPage() {
                 </p>
                 <div className='mt-10 flex items-center justify-center gap-x-6'>
                   <a
-                    href={'/pricing'}
+                    href={'/login'}
                     className='rounded-lg px-17 py-4 text-sm font-semibold bg-raffleleader text-white ring-1 ring-inset ring-gray-200 hover:ring-2 hover:ring-gray-200 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:text-white'
                   >
                     Get Started
@@ -353,9 +352,14 @@ export default function LandingPage() {
           <h2 className="text-lg md:text-4xl lg:text-6xl font-normal mb-2">Try <span className="font-semibold tracking-widest">RAFFLE LEADER</span></h2>
           <p className="md:text-3xl lg:text-5xl mb-4">Risk Free For 14 Days</p>
           <p className="text-md mb-6 tracking-wider">And spend more time converting leads, not finding them.</p>
-          <button className="bg-white text-raffleleader font-semibold px-16 py-2 rounded hover:bg-raffleleader hover:text-white transition-colors">
-            Get Started
-          </button>
+          <div className='mt-10 flex items-center justify-center gap-x-6'>
+            <a
+              href={'/login'}
+              className='rounded-lg px-17 py-4 text-sm font-semibold bg-white text-raffleleader ring-1 ring-inset ring-gray-200 hover:ring-2 hover:ring-gray-200 hover:bg-gray-200 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:text-white'
+            >
+              Get Started
+            </a>
+          </div>
         </div>
       </main>
 
