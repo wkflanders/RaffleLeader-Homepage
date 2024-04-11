@@ -1,6 +1,8 @@
 import { VerifyEmailForm } from 'wasp/client/auth';
 import { Link } from 'react-router-dom';
 import { AuthWrapper } from './authWrapper';
+import { AuthApperance } from '../../authAppearance';
+import Logo from '../static/BANNER-LOGO.svg';
 
 export function EmailVerification() {
   return (
