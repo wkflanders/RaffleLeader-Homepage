@@ -8,7 +8,6 @@ import { HiBars3 } from 'react-icons/hi2';
 import logo from '../static/TEXT-LOGO.svg';
 import DropdownUser from './DropdownUser';
 import { DOCS_URL, BLOG_URL } from '../../shared/constants';
-import DarkModeSwitcher from '../admin/components/DarkModeSwitcher';
 import { UserMenuItems } from '../components/UserMenuItems';
 
 const navigation = [
