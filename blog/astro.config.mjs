@@ -6,18 +6,18 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://opensaas.sh',
+  site: 'https://raffleleader.com',
   integrations: [
     starlightBlog({
       title: 'Blog',
       customCss: ['./src/styles/tailwind.css'],
       authors: {
-        vince: {
-          name: 'Vince',
+        stephen: {
+          name: 'Stephen',
           title: 'Dev Rel @ Wasp',
           picture: '/CRAIG_ROCK.png',
           // Images in the `public` directory are supported.
-          url: 'https://wasp-lang.dev',
+          url: 'https://raffleleader.com',
         },
       },
     }),
