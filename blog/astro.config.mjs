@@ -15,19 +15,19 @@ export default defineConfig({
         stephen: {
           name: 'Stephen',
           title: 'Dev Rel @ Wasp',
-          picture: '/CRAIG_ROCK.png',
+          picture: '/STEPHEN.jpg',
           // Images in the `public` directory are supported.
           url: 'https://raffleleader.com',
         },
       },
     }),
     starlight({
-      title: 'Your SaaS',
+      title: 'Raffle Leader',
       customCss: ['./src/styles/tailwind.css'],
-      description: 'Documentation for your SaaS.',
+      description: 'Documentation for Raffle Leader.',
       logo: {
         src: '/src/assets/logo.png',
-        alt: 'Your SaaS',
+        alt: 'Raffle Leader',
       },
       head: [
         // Add your script tags here. Below is an example for Google analytics, etc.
@@ -49,7 +49,7 @@ export default defineConfig({
         },
       ],
       editLink: {
-        baseUrl: 'https://github.com/<your-repo>',
+        baseUrl: 'https://github.com/',
       },
       components: {
         SiteTitle: './src/components/MyHeader.astro',
@@ -59,9 +59,7 @@ export default defineConfig({
       },
 
       social: {
-        github: 'https://github.com/wasp-lang/open-saas',
-        twitter: 'https://twitter.com/wasp_lang',
-        discord: 'https://discord.gg/aCamt5wCpS',
+        twitter: 'https://twitter.com/RaffleLeader',
       },
       sidebar: [
         {
