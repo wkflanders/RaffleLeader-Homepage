@@ -14,7 +14,7 @@ export default defineConfig({
       authors: {
         stephen: {
           name: 'Stephen',
-          title: 'Dev Rel @ Wasp',
+          title: 'Founder @ Raffle Leader',
           picture: '/STEPHEN.jpg',
           // Images in the `public` directory are supported.
           url: 'https://raffleleader.com',
