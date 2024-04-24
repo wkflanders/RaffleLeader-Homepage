@@ -161,7 +161,7 @@ export default function LandingPage() {
                 </h1>
                 <p className='mt-6 mx-auto max-w-2xl text-lg leading-8 text-gray-600 dark:text-white'>
                   Put your <span className='text-raffleleader'>growth on autopilot</span> with customizable,<br>
-                  </br> viral giveaways and contests
+                  </br> viral giveaways and contests in WordPress
                 </p>
                 <div className='mt-10 flex items-center justify-center gap-x-6'>
                   <a
