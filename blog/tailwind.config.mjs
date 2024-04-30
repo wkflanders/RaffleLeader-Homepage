@@ -1,8 +1,8 @@
 import starlightPlugin from "@astrojs/starlight-tailwind";
 import colors from "tailwindcss/colors";
 
-const yellow = colors.yellow
-const gray = colors.gray
+const white = colors.white
+const raffleleader = '#1501FE'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        accent: yellow, gray
+        accent: white, raffleleader
       },
     },
   },
