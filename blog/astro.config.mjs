@@ -12,12 +12,19 @@ export default defineConfig({
       title: 'Blog',
       customCss: ['./src/styles/tailwind.css'],
       authors: {
-        vince: {
+        stephen: {
           name: 'Stephen',
           title: 'Founder @ Raffle Leader',
           picture: '/STEPHEN.jpg',
           // Images in the `public` directory are supported.
-          url: 'https://wasp-lang.dev',
+          url: 'https://raffleleader.com',
+        },
+        william: {
+          name: 'William',
+          title: 'Founder @ Raffle Leader',
+          picture: '/WILLIAM.jpg',
+          // Images in the `public` directory are supported.
+          url: 'https://raffleleader.com',
         },
       },
     }),
