@@ -1,4 +1,5 @@
 app OpenSaaS {
+  // pricing -> checkout -> email form -> email -> login
   wasp: {
     version: "^0.13.0"
   },
@@ -61,7 +62,7 @@ app OpenSaaS {
   client: {
     rootComponent: import App from "@src/client/App",
   },
-  emailSender: {F
+  emailSender: {
     provider: SMTP,
     defaultFrom: {
       name: "Raffle Leader",
