@@ -19,19 +19,20 @@ export default defineConfig({
           // Images in the `public` directory are supported.
           url: 'https://raffleleader.com',
         },
-        william: {
-          name: 'William',
-          title: 'Founder @ Raffle Leader',
-          picture: '/WILLIAM.jpg',
-          // Images in the `public` directory are supported.
-          url: 'https://raffleleader.com',
-        },
+        // william: {
+        //   name: 'William',
+        //   title: 'Founder @ Raffle Leader',
+        //   picture: '/WILLIAM.jpg',
+        //   // Images in the `public` directory are supported.
+        //   url: 'https://raffleleader.com',
+        // },
       },
+      postCount: 2,
     }),
     starlight({
       title: 'Raffle Leader',
       customCss: ['./src/styles/tailwind.css'],
-      description: 'Documentation for your Raffle Leader.',
+      description: 'Documentation for Raffle Leader.',
       logo: {
         src: '/src/assets/logo.png',
         alt: 'Raffle Leader',
