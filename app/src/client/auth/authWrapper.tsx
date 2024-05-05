@@ -3,10 +3,10 @@ import banner from '../static/LOGIN-BANNER.svg';
 
 export function AuthWrapper({children} : {children: ReactNode }) {
   return (
-    <div className='grid grid-cols-3 min-h-screen'>
+    <div className='grid grid-cols-3 pl-12 min-h-screen'>
       {/* Login form taking up 1/3 of the space */}
       <div className='flex flex-col col-span-1 justify-center bg-white py-8 px-4 sm:rounded-lg sm:px-10'>
-        <div>
+        <div className="pr-12">
           {children}
         </div>
       </div>

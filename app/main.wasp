@@ -61,7 +61,7 @@ app OpenSaaS {
   client: {
     rootComponent: import App from "@src/client/App",
   },
-  emailSender: {
+  emailSender: {F
     provider: SMTP,
     defaultFrom: {
       name: "Raffle Leader",
