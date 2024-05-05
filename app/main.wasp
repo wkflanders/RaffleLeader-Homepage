@@ -13,6 +13,7 @@ app OpenSaaS {
         "<meta name='twitter:image:width' content='800' />",
         "<meta name='twitter:image:height' content='400' />",
         "<meta name='twitter:card' content='summary_large_image' />",
+        "<link rel='icon' type='image/x-icon' href='https://raffleleader-blog.s3.us-east-2.amazonaws.com/favicon.svg'>",
         // you can put your analytics scripts here
         "<script defer data-domain='<your-site-id>' src='https://plausible.io/js/script.js'></script>",
         // plausible has script extension `script.local.js` for local development
