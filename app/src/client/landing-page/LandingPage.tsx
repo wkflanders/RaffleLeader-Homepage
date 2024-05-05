@@ -204,25 +204,24 @@ export default function LandingPage() {
               </div>
             </div>
           ))}
-          <div className="py-20 mt-10 text-center text-white">
+          <div className="py-30 mt-10 text-center text-white">
             <h2 className="font-overpass text-5xl font-light mb-8">How It Works</h2>
             <div className="flex justify-center items-stretch mx-auto gap-10" style={{ maxWidth: '1200px' }}>
-              <div className="flex flex-col justify-center bg-translucent text-white p-6 rounded-3xl border border-white w-1/3 min-h-[250px] space-y-4">
-                <h3 className="text-xl font-semibold">Create Campaign</h3>
-                <p>Sign up and create campaigns around your event.</p>
+              <div className="flex flex-col justify-center bg-translucent text-white p-20 rounded-3xl border border-white w-1/3 min-h-[250px]">
+                <h3 className="text-3xl text-left font-semibold">Create Campaign</h3>
+                <p className="text-md text-left">Sign up and create campaigns around your event.</p>
               </div>
-              <div className="flex flex-col justify-center bg-translucent text-white p-6 rounded-3xl border border-white w-1/3 min-h-[250px] space-y-4">
-                <h3 className="text-xl font-semibold">Share Page & Let Users Predict Date</h3>
-                <p>Users sign up and you get new leads.</p>
+              <div className="flex flex-col justify-center bg-translucent text-white p-20 rounded-3xl border border-white w-1/3 min-h-[250px]">
+                <h3 className="text-3xl text-left font-semibold">Share Page <br></br> & Let Users <br></br> Predict Date</h3>
+                <p className="text-md text-left">Users sign up and you get new leads.</p>
               </div>
-              <div className="flex flex-col justify-center bg-translucent text-white p-6 rounded-3xl border border-white w-1/3 min-h-[250px] space-y-4">
-                <h3 className="text-xl font-semibold">Winner Gets Notified Automatically</h3>
-                <p>We automatically notify you and winner when event occurs.</p>
+              <div className="flex flex-col justify-center bg-translucent text-white p-20 rounded-3xl border border-white w-1/3 min-h-[250px]">
+                <h3 className="text-3xl text-left font-semibold">Winner <br></br> Gets Notified <br></br> Automatically</h3>
+                <p className="text-md text-left">We automatically notify you and winner when event occurs.</p>
               </div>
             </div>
           </div>
         </div>
-
 
         {/* Stats section */}
         <div id='stats' className='mx-auto max-w-7xl sm:px-6 lg:px-8 mt-48 max-w-7xl px-6 lg:px-8'>
