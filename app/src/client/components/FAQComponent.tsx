@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { faqs } from '../landing-page/contentSections';  // Ensure this path is correct
 
 function FAQComponent() {
-  // Initialize answerVisible state with all FAQs set to 'false' (hidden)
   const [answerVisible, setAnswerVisible] = useState(Array(faqs.length).fill(false));
+  const answersRef = useRef(new Array(faqs.length));  // Adjust ref array initialization
 
   // Function to toggle the visibility of an FAQ answer
   const toggleAnswer = (index: number): void => {
@@ -21,17 +21,20 @@ function FAQComponent() {
       </h2>
       <dl className='mt-10 space-y-8 divide-y divide-gray-900/10'>
         {faqs.map((faq, index) => (
-          <div key={faq.id} className='pt-8 lg:grid lg:grid-cols-12 lg:gap-8'>
-            <dt className='text-base font-semibold leading-7 text-gray-900 lg:col-span-5 dark:text-white'>
+          <div key={faq.id} className='pt-8'>
+            <dt className='text-base font-semibold leading-7 text-gray-900 dark:text-white'>
               <button 
                 type="button" 
                 className="flex items-center gap-2"
-                onClick={() => toggleAnswer(index)} // Toggle answer visibility when button is clicked
+                onClick={() => toggleAnswer(index)}
               >
                 {faq.question}
               </button>
             </dt>
-            <dd className={`flex items-center justify-start gap-2 mt-4 lg:col-span-7 lg:mt-0 ${answerVisible[index] ? '' : 'hidden'}`}>
+            <dd className={`mt-2 overflow-hidden transition-height duration-500 ease-in-out`}
+                ref={el => answersRef.current[index] = el}
+                style={{ height: answerVisible[index] ? `${answersRef.current[index]?.scrollHeight}px` : '0px' }}
+            >
               <p className='text-base leading-7 text-gray-600 dark:text-white'>{faq.answer}</p>
             </dd>
           </div>
