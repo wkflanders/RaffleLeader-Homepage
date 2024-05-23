@@ -81,9 +81,38 @@ export const tiers = [
 export const faqs = [
   {
     id: 1,
-    question: 'Whats a good example FAQ to throw up?',
-    answer: 'No idea, ask Stephen.',
-    href: DOCS_URL,
+    question: 'Is RaffleLeader right for me?',
+    answer: "It doesn't matter if you're a business owner or an influencer, if you want to get leads and grow quickly with viral giveaway marketing, then RaffleLeader is right for you.",
+  },
+  {
+    id: 1,
+    question: "What's required to use RaffleLeader?",
+    answer: "A self-hosted WordPress site. That's it.",
+  },
+  {
+    id: 1,
+    question: "Does RaffleLeader require coding?",
+    answer: "No. RaffleLeader is a one-click WordPress plugin. All you need to do to start getting leads is to install the plugin.",
+  },
+  {
+    id: 1,
+    question: "Will RaffleLeader slow down my site?",
+    answer: "No. We hate slow sites just as much as you do. The last thing we'd do is torture you with one.",
+  },
+  {
+    id: 1,
+    question: "Can my clients use RaffleLeader?",
+    answer: "Yes. All of our plans can be used with unlimited sites.",
+  },
+  {
+    id: 1,
+    question: "Does RaffleLeader work on non-WordPress sites?",
+    answer: "No. RaffleLeader is a WordPress plugin, meaning that it only works on self-hosted WordPress sites.",
+  },
+  {
+    id: 1,
+    question: "Can I try it out for free?",
+    answer: "Yes and no. We don't offer free trials, however, we do offer a 14-day money back guarantee. So, if you don't like RaffleLeader for whatever reason, just let us know in the first 14 days and we'll refund 100% of your money.",
   },
 ];
 
