@@ -9,12 +9,13 @@ import { BiLogIn } from 'react-icons/bi';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import logo from '../static/TEXT-LOGO.svg';
 import openSaasBanner from '../static/hero-image.png';
-import { features, stats, navigation, faqs, footerNavigation, tiers } from './contentSections';
+import { features, stats, navigation, footerNavigation, tiers } from './contentSections';
 import { TierIds } from '../../shared/constants';
 import DropdownUser from '../components/DropdownUser';
 import { DOCS_URL } from '../../shared/constants';
 import { UserMenuItems } from '../components/UserMenuItems';
 import { cn } from '../../shared/utils';
+import FAQComponent from '../components/FAQComponent';
 
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -29,7 +30,7 @@ export default function LandingPage() {
     history.push('/pricing');
     return;
   }
-
+  
   return (
     <div className='overflow-x-hidden bg-white dark:text-white dark:bg-boxdark-2'>
       {/* Header */}
@@ -160,7 +161,7 @@ export default function LandingPage() {
                   </br>than ever before.
                 </h1>
                 <p className='mt-6 mx-auto max-w-2xl text-lg leading-8 text-gray-600 dark:text-white'>
-                  Put your <span className='text-raffleleader'>growth on autopilot</span> with customizable,<br>
+                  Put your <span className='text-raffleleader'>growth on autopilot</span> with customizable<br>
                   </br> viral giveaways and contests in WordPress
                 </p>
                 <div className='mt-10 flex items-center justify-center gap-x-6'>
@@ -323,7 +324,7 @@ export default function LandingPage() {
         </div>
 
         {/* FAQ */}
-        <div className='mt-32 mb-32 mx-auto max-w-2xl divide-y divide-gray-900/10 dark:divide-gray-200/10 px-6 pb-8 sm:pb-24 sm:pt-12 lg:max-w-7xl lg:px-8 lg:py-32'>
+        {/* <div className='mt-32 mb-32 mx-auto max-w-2xl divide-y divide-gray-900/10 dark:divide-gray-200/10 px-6 pb-8 sm:pb-24 sm:pt-12 lg:max-w-7xl lg:px-8 lg:py-32'>
           <h2 className='text-2xl font-bold leading-10 tracking-tight text-gray-900 dark:text-white'>
             FAQs
           </h2>
@@ -335,16 +336,12 @@ export default function LandingPage() {
                 </dt>
                 <dd className='flex items-center justify-start gap-2 mt-4 lg:col-span-7 lg:mt-0'>
                   <p className='text-base leading-7 text-gray-600 dark:text-white'>{faq.answer}</p>
-                  {faq.href && (
-                    <a href={faq.href} className='text-base leading-7 text-gray-600 hover:text-raffleleader'>
-                      Learn more →
-                    </a>
-                  )}
                 </dd>
               </div>
             ))}
           </dl>
-        </div>
+        </div> */}
+        <FAQComponent />
 
         {/* Closing */}
         <div className="bg-rl_wave bg-top bg-cover bg-no-repeat text-white text-center py-60 rounded-lg">
