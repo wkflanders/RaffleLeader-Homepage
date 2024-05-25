@@ -50,7 +50,9 @@ const BlogListPage = ({ metadata, items }) => {
             <div className={styles.featuredPost}>
               <img src={featuredPost.imageUrl} alt={featuredPost.title} />
               <div className={styles.featuredPostContent}>
-                <h2>{featuredPost.title}</h2>
+                <h2 className={styles.featuredPostTitle}>
+                  <Link to={featuredPost.permalink}>{featuredPost.title}</Link>
+                </h2>
                 <p>{featuredPost.description}</p>
                 <Link to={featuredPost.permalink}>Read more &rarr;</Link>
               </div>
@@ -62,7 +64,9 @@ const BlogListPage = ({ metadata, items }) => {
                 <img src={post.imageUrl} alt={post.title} />
                 <div className={styles.blogListItemContent}>
                   <div>
-                    <h2 className={styles.blogListItemTitle}>{post.title}</h2>
+                    <h2 className={styles.blogListItemTitle}>
+                      <Link to={post.permalink}>{post.title}</Link>
+                    </h2>
                     <p className={styles.blogListItemDescription}>{post.description}</p>
                   </div>
                   <div className={styles.blogListItemReadMore}>
