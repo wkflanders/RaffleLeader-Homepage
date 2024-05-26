@@ -1,117 +1,145 @@
-/* styles.module.css */
-
 .blogListPage {
-    background-color: #ffffff; /* Background color similar to the screenshot */
-    color: #333; /* Text color */
-  }
-  
-  .blogListContainer {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-  }
-  
-  .blogListHeader {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  
-  .blogListHeader h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .blogListHeader p {
-    font-size: 1.25rem;
-    color: #666;
-  }
-  
-  .featuredPost {
-    display: flex;
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-  }
-  
-  .featuredPost img {
-    width: 50%;
-    height: auto;
-    object-fit: cover;
-  }
-  
-  .featuredPostContent {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
-  }
-  
-  .featuredPost h2 {
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-  
-  .featuredPost p {
-    font-size: 1.25rem;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
+  background-color: #ffffff; /* Background color similar to the screenshot */
+  color: #333; /* Text color */
+}
+
+.blogListContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.blogListHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.blogListHeader h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.blogListHeader p {
+  font-size: 1.25rem;
+  color: #666;
+}
+
+.featuredPost {
+  display: flex;
+  flex-direction: column; /* Change to column to stack image on top */
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+}
+
+.featuredPostTitle a{
+  color: #000; /* Keep the title color black */
+  text-decoration: none; /* Remove text decoration */
+}
+
+.featuredPostTitle a:hover{
+  text-decoration: underline;
+}
+
+.featuredPost img {
+  width: 100%; /* Make the image full width */
+  height: auto;
+  object-fit: cover;
+}
+
+.featuredPostContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.featuredPost h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.featuredPost p {
+  font-size: 1.25rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.blogListItems {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.blogListItem {
+  background-color: #fff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Change to column to stack image on top */
+}
+
+.blogListItem img {
+  width: 100%; /* Make the image full width */
+  height: auto;
+}
+
+.blogListItemContent {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.blogListItemTitle {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.blogListItemTitle a {
+  color: #000; /* Keep the title color black */
+  text-decoration: none; /* Remove text decoration */
+}
+
+.blogListItemTitle a:hover {
+  text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+.blogListItemDescription {
+  font-size: 0.875rem; /* Smaller font size for non-featured posts */
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.blogListItemReadMore {
+  text-align: right;
+}
+
+.blogListItemReadMore a:hover {
+  text-decoration: underline;
+}
+
+/* Alternate rows with 2 and 3 columns */
+@media screen and (min-width: 768px) {
   .blogListItems {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* Default to 2 columns */
   }
-  
-  .blogListItem {
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    flex: 1 1 calc(33.333% - 20px);
-    max-width: calc(33.333% - 20px);
-    display: flex;
-    flex-direction: column;
+
+  .blogListItem:nth-child(3n) {
+    grid-column: span 2; /* Make every 3rd item span 2 columns */
   }
-  
-  .blogListItem img {
-    width: 100%;
-    height: auto;
+
+  .blogListItem:nth-child(6n+1), 
+  .blogListItem:nth-child(6n+2) {
+    grid-column: span 1; /* Reset to span 1 column for new row */
   }
-  
-  .blogListItemContent {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex-grow: 1;
+
+  .blogListItem:nth-child(6n+3) {
+    grid-column: span 2; /* Make every 6th item span 2 columns */
   }
-  
-  .blogListItemTitle {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .blogListItemDescription {
-    font-size: 1rem;
-    color: #666;
-    margin-bottom: 20px;
-  }
-  
-  .blogListItemReadMore {
-    text-align: right;
-  }
-  
-  .blogListItemReadMore a {
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .blogListItemReadMore a:hover {
-    text-decoration: underline;
-  }
-  
+}
