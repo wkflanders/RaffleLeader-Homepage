@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css'; // Import the CSS module
 
 const BlogListPage = ({ metadata, items }) => {
@@ -19,24 +20,49 @@ const BlogListPage = ({ metadata, items }) => {
 
   const blogPosts = items.map(({ content }) => {
     const { frontMatter, metadata } = content;
-    const { permalink, title, description } = metadata;
+    const { permalink, title, description, date } = metadata;
     const imageUrl = frontMatter.image
       ? isExternalUrl(frontMatter.image)
         ? frontMatter.image
-        : `/img/${frontMatter.image}`
-      : `/img/default-blog-image.jpg`; // Construct the image path from static/img or use external URL
+        : useBaseUrl(`/img/${frontMatter.image}`)
+      : useBaseUrl('/img/default-blog-image.jpg'); // Construct the image path from static/img or use external URL
 
     return {
       permalink,
       title,
       description,
       imageUrl,
+      date: new Date(date),
       featured: frontMatter.featured || false,
     };
   });
 
+  // Sort blog posts chronologically
+  blogPosts.sort((a, b) => b.date - a.date);
+
   let featuredPost = blogPosts.find(post => post.featured);
   const nonFeaturedPosts = blogPosts.filter(post => !post.featured);
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const postsPerPage = 7; // Set posts per page to 7 since 1 will be featured
+
+  // Calculate the posts to display on the current page
+  const indexOfLastPost = currentPage * postsPerPage;
+  const indexOfFirstPost = indexOfLastPost - postsPerPage;
+  const currentPosts = nonFeaturedPosts.slice(indexOfFirstPost, indexOfLastPost);
+
+  const totalPages = Math.ceil(nonFeaturedPosts.length / postsPerPage);
+
+  // Handle page change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  // Scroll to top on page change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [currentPage]);
 
   return (
     <Layout title={title} description={description}>
@@ -46,7 +72,7 @@ const BlogListPage = ({ metadata, items }) => {
             <h1>Raffle Leader Blog</h1>
             <p>Finally create fully customizable contests and giveaways in WordPress!</p>
           </div>
-          {featuredPost && (
+          {currentPage === 1 && featuredPost && (
             <div className={styles.featuredPost}>
               <img src={featuredPost.imageUrl} alt={featuredPost.title} />
               <div className={styles.featuredPostContent}>
@@ -59,7 +85,7 @@ const BlogListPage = ({ metadata, items }) => {
             </div>
           )}
           <div className={styles.blogListItems}>
-            {nonFeaturedPosts.map((post, index) => (
+            {currentPosts.map((post, index) => (
               <div className={styles.blogListItem} key={index}>
                 <img src={post.imageUrl} alt={post.title} />
                 <div className={styles.blogListItemContent}>
@@ -74,6 +100,17 @@ const BlogListPage = ({ metadata, items }) => {
                   </div>
                 </div>
               </div>
+            ))}
+          </div>
+          <div className={styles.pagination}>
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index + 1}
+                onClick={() => handlePageChange(index + 1)}
+                className={currentPage === index + 1 ? styles.active : ''}
+              >
+                {index + 1}
+              </button>
             ))}
           </div>
         </div>
