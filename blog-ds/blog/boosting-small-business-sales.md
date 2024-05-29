@@ -1,8 +1,13 @@
 ---
 title: "Boosting Small Business Sales: The Impact of Giveaways"
-date: 2024-11-20
+date: 2024-02-19
 image: https://raffleleader-blog.s3.us-east-2.amazonaws.com/Group-95.png
 authors: stephen
+tags:
+    - giveaway
+    - guide
+    - small business
+    - social media
 ---
 
 ![](https://raffleleader-blog.s3.us-east-2.amazonaws.com/Group-95.png)
