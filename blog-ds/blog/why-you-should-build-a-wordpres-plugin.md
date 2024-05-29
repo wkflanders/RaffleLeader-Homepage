@@ -1,9 +1,13 @@
 ---
 title: "Why You Should Build A WordPress Plugin"
-date: 2024-11-25
+date: 2024-02-19
 featured: true
 image: https://raffleleader-blog.s3.us-east-2.amazonaws.com/Group-94.png
 authors: stephen
+tags: 
+    - plugin
+    - small business
+    - wordpress
 ---
 
 <!-- [Raffle Leader](https://raffleleader.com/) -->
