@@ -6,10 +6,10 @@ authors: stephen
 tags:
     - giveaway
     - instagram
-    - wordpress
-    - small business
+    - plugin
+    - scam
     - social media
-    - guide
+    - wordpress
 ---
 
 ![](./how-to-spot.png)
