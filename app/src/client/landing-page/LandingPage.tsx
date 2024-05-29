@@ -8,7 +8,7 @@ import { HiBars3 } from 'react-icons/hi2';
 import { BiLogIn } from 'react-icons/bi';
 import { AiFillCheckCircle } from 'react-icons/ai';
 import logo from '../static/TEXT-LOGO.svg';
-import openSaasBanner from '../static/hero-image.png';
+import raffleLeaderBanner from '../static/hero-image.png';
 import { features, stats, navigation, footerNavigation, tiers } from './contentSections';
 import { TierIds } from '../../shared/constants';
 import DropdownUser from '../components/DropdownUser';
@@ -176,7 +176,7 @@ export default function LandingPage() {
               <div className='mt-14 flow-root sm:mt-14 '>
                 <div className='-m-2 rounded-xl  lg:-m-4 lg:rounded-2xl lg:p-4'>
                   <img
-                    src={openSaasBanner}
+                    src={raffleLeaderBanner}
                     alt='App screenshot'
                     width={2432}
                     height={1442}
