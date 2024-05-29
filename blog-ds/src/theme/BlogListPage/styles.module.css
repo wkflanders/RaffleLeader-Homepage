@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
 
 .blogListPage {
-  background-color: #ffffff; /* Background color similar to the screenshot */
-  color: #333; /* Text color */
+  background: linear-gradient(180deg, #1501FE, #ffffff); /* Gradient background similar to the screenshot */
+  color: #ffffff; /* Text color */
   font-family: 'Overpass', 'sans-serif';
+  min-height: 100vh; /* Ensure the background covers the full height */
+  padding: 20px 0; /* Add padding to top and bottom */
 }
+
 
 .blogListContainer {
   max-width: 1200px;
@@ -25,7 +28,7 @@
 
 .blogListHeader p {
   font-size: 1.25rem;
-  color: #666;
+  color: #ffffff;
 }
 
 .featuredPost {
