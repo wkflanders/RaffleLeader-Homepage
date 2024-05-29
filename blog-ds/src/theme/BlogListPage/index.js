@@ -25,7 +25,7 @@ const BlogListPage = ({ metadata, items }) => {
       ? isExternalUrl(frontMatter.image)
         ? frontMatter.image
         : useBaseUrl(`/img/${frontMatter.image}`)
-      : useBaseUrl('/img/default-blog-image.jpg'); // Construct the image path from static/img or use external URL
+      : useBaseUrl('/img/default-blog-image.jpg');
 
     return {
       permalink,
