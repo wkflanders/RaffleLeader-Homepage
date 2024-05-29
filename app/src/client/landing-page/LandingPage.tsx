@@ -16,6 +16,7 @@ import { DOCS_URL } from '../../shared/constants';
 import { UserMenuItems } from '../components/UserMenuItems';
 import { cn } from '../../shared/utils';
 import FAQComponent from '../components/FAQComponent';
+import FeaturesComponent from '../components/FeaturesComponent';
 
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -189,40 +190,7 @@ export default function LandingPage() {
         </div>
 
         {/* Features section */}
-        <div id='features' className='mt-12 pt-20 pb-20 bg-gradient-to-b from-raffleleader to-violet-400'>
-          {features.map((feature, index) => (
-            <div key={feature.name} className={`flex flex-col md:flex-row ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-x-8 gap-y-6 sm:gap-x-10 sm:gap-y-14`}>
-              {/* Image container */}
-              <div className={`border-white border-t-2 border-b-2 flex-1 flex justify-center ${index % 2 === 0 ? 'justify-end border-r-2 rounded-r-2xl -ml-6' : 'justify-start border-l-2 rounded-l-2xl -mr-20'} px-4 py-6`}>
-                <img src={feature.img} alt={feature.name} className="w-auto h-auto rounded-lg shadow-lg py-4 shadow-none" />
-              </div>
-              {/* Text content container */}
-              <div className='flex-1 py-60 px-20 flex justify-center items-center'>
-                <div className="max-w-sm mx-auto text-left"> {/* Adjust max-w-xl to your preference */}
-                  <h2 className="font-overpass text-2xl font-light text-white sm:text-4xl lg:text-5xl pb-4">{feature.name}</h2>
-                  <p className="font-overpass text-base font-light text-white sm:text-lg lg:text-xl">{feature.description}</p>
-                </div>
-              </div>
-            </div>
-          ))}
-          <div className="py-30 mt-10 text-center text-white">
-            <h2 className="font-overpass text-5xl font-light mb-8">How It Works</h2>
-            <div className="flex justify-center items-stretch mx-auto gap-10" style={{ maxWidth: '1200px' }}>
-              <div className="flex flex-col justify-center bg-translucent text-white p-20 rounded-3xl border border-white w-1/3 min-h-[250px]">
-                <h3 className="text-3xl text-left font-semibold">Create Campaign</h3>
-                <p className="text-md text-left">Sign up and create campaigns around your event.</p>
-              </div>
-              <div className="flex flex-col justify-center bg-translucent text-white p-20 rounded-3xl border border-white w-1/3 min-h-[250px]">
-                <h3 className="text-3xl text-left font-semibold">Share Page <br></br> & Let Users <br></br> Predict Date</h3>
-                <p className="text-md text-left">Users sign up and you get new leads.</p>
-              </div>
-              <div className="flex flex-col justify-center bg-translucent text-white p-20 rounded-3xl border border-white w-1/3 min-h-[250px]">
-                <h3 className="text-3xl text-left font-semibold">Winner <br></br> Gets Notified <br></br> Automatically</h3>
-                <p className="text-md text-left">We automatically notify you and winner when event occurs.</p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <FeaturesComponent features={features} />
 
         {/* Stats section */}
         <div id='stats' className='mx-auto max-w-7xl sm:px-6 lg:px-8 mt-48 max-w-7xl px-6 lg:px-8'>
