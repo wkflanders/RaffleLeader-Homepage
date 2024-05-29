@@ -4,10 +4,10 @@ date: 2024-03-11
 image: popup-plugin-2024.png
 authors: stephen
 tags:
-    - giveaway
+    - plugin
     - guide
-    - small business
-    - social media
+    - popup
+    - wordpress
 ---
 
 ![](./popup-plugin-2024.png)
