@@ -25,7 +25,7 @@ const BlogListPage = ({ metadata, items }) => {
       ? isExternalUrl(frontMatter.image)
         ? frontMatter.image
         : useBaseUrl(`/img/${frontMatter.image}`)
-      : useBaseUrl('/img/default-blog-image.jpg');
+      : useBaseUrl('/img/default-blog-image.png');
 
     return {
       permalink,
@@ -37,7 +37,7 @@ const BlogListPage = ({ metadata, items }) => {
     };
   });
 
-  // Sort blog posts chronologically
+  // Sort blog posts chronologically with most recent first
   blogPosts.sort((a, b) => b.date - a.date);
 
   let featuredPost = blogPosts.find(post => post.featured);
