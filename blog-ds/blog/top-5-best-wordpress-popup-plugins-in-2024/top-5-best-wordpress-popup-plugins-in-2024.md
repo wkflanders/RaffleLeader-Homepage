@@ -39,21 +39,21 @@ OptinMonster uses a Drag-n-Drop builder to create popups. With this builder, you
 
 Beyond the customizable campaigns, OptinMonster also enables you to direct your popups to occur at certain times (like when users are about to leave your site or have been idle for a while) and at certain people (like from a specific location or a specific website).
 
-*Strengths*: 
+**Strengths**: 
 
 - Easy to use drag-n-drop builder
 - Ad-Block detection
 - Mobile friendly templates
 - Great customer support
 
-*Weaknesses*:
+**Weaknesses**:
 
 - Free plan is very limited
 - Built-in metrics are a bit basic
 - Not many template options
 - It is quite expensive to get all of the features
 
-*Pricing*: Options at $9/mo, $19/mo, $29/mo, and $49/mo, billed annually. 
+**Pricing**: Options at $9/mo, $19/mo, $29/mo, and $49/mo, billed annually. 
 
 ### 2. Sumo
 
@@ -63,19 +63,19 @@ Beyond the customizable campaigns, OptinMonster also enables you to direct your 
 
 Sumo integrates directly into WooCommerce, enabling you to create and customize opt-in forms, add share buttons, email subscribers, and reduce cart abandonment. 
 
-*Strengths*:
+**Strengths**:
 
 - Strong customer support
 - Easy to set up
 - Built-in A/B testing
 
-*Weaknesses*:
+**Weaknesses**:
 
 - Visitor-facing branding on the free version
 - Some reports of the plugin slowing down customers’ websites
 - The premium plan is pretty expensive
 
-*Pricing*: Free or $49/mo, dropping to $39/mo if you buy an annual plan. 
+**Pricing**: Free or $49/mo, dropping to $39/mo if you buy an annual plan. 
 
 ### 3. Popup Maker
 
@@ -85,7 +85,7 @@ Sumo integrates directly into WooCommerce, enabling you to create and customize 
 
 The beauty of Popup Maker is in its unlimited and unrestricted design options, from the popup's size and positioning to its animation effect. It's a plugin that truly lets your creativity take the lead.
 
-*Strengths*:
+**Strengths**:
 
 - A wide range of popups, from e-Commerce to contact forms.
 - Integration with wooCommerce, Ninja Forms, WPForms, Mailchimp, ConverKit, Hubspot, and more. 
@@ -93,12 +93,12 @@ The beauty of Popup Maker is in its unlimited and unrestricted design options, f
 - A strong free version
 - Smarter cookie settings that ensure your popups aren’t annoying
 
-*Weaknesses*:
+**Weaknesses**:
 
 - Many of the best features are only in the premium plan.
 - Analytics are only offered in the premium plan, or for $45/year. 
 
-*Pricing*: Free, $87/year, $147/year, $247/year
+**Pricing**: Free, $87/year, $147/year, $247/year
 
 ### 4. Bloom
 
@@ -115,7 +115,7 @@ Created by Elegant Themes, [Bloom](https://www.elegantthemes.com/plugins/bloom/)
 
 Overall, Bloom is easy to use, offering over 100 customizable templates, and quite powerful, offering features like triggers, time delays, and targeting.
 
-*Strengths*:
+**Strengths**:
 
 - Integrations with 19 major email platforms like Mailchimp, ConvertKit, and Hubspot. 
 - Over 100 customizable templates
@@ -123,12 +123,12 @@ Overall, Bloom is easy to use, offering over 100 customizable templates, and qui
 - A/B testing
 - Robust analytics dashboard
 
-*Weaknesses*:
+**Weaknesses**:
 
 - No free version
 A- n almost overwhelming amount of templates and features
 
-*Pricing*: $89/year or $287/year
+**Pricing**: $89/year or $287/year
 
 ### 5. Thrive Leads
 
@@ -140,7 +140,7 @@ Creating popups with Thrive Leads is very simple because of their drag-and-drop 
 
 In addition to the editor, Thrive Leads also offers advanced targeting that boosts your conversions by tailoring your popups to your visitors. 
 
-*Strengths*:
+**Strengths**:
 
 - Includes A/B testing
 - Dozens of templates and mobile-specific forms
@@ -149,12 +149,12 @@ In addition to the editor, Thrive Leads also offers advanced targeting that boos
 - Multiple trigger options
 - Integrations with all major email marketing platforms
 
-*Weaknesses*:
+**Weaknesses**:
 
 - Slightly slower than some of the other options
 - No free option
 
-*Pricing*: $99/year
+**Pricing**: $99/year
 
 ## What is the best popup plugin for WordPress?
 
