@@ -1,8 +1,13 @@
 ---
 title: "Step by Step Guide to Running a Successful Facebook Giveaway"
-date: 2024-12-01
+date: 2024-02-19
 image: https://raffleleader-blog.s3.us-east-2.amazonaws.com/Group-93.png
 authors: stephen
+tags:
+    - facebook
+    - giveaway
+    - guide
+    - social media
 ---
 
 <!-- [Raffle Leader](https://raffleleader.com/) -->
