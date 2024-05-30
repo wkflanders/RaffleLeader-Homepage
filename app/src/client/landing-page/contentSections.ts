@@ -37,7 +37,7 @@ export const features = [
     name: 'Wide Range of Integrations',
     description: 'Whether its social media, emails, or referrals, Raffle Leader has you covered.',
     img: publish,
-    backgroundColor: '#7a5cc2',
+    backgroundColor: '#9452ff',
   },
 ];
 
