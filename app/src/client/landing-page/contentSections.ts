@@ -19,21 +19,25 @@ export const features = [
     name: 'Ridiculously Easy',
     description: 'Easily create beautiful giveaways, contests, and sweepstakes, and customize them exatly to your liking.',
     img: signin,
+    backgroundColor: '#1501FE',
   },
   {
     name: 'Prebuilt No-Code Templates',
     description: 'Get follwers and leads immediately with beautiful templates that fit every need.',
     img: templates,
+    backgroundColor: '#3e30cd',
   },
   {
     name: 'Fully Customizeable',
     description: 'Make your raffles exactly as you like them with our intuitive drag and drop editor.',
     img: editor,
+    backgroundColor: '#665cd6',
   },
   {
     name: 'Wide Range of Integrations',
     description: 'Whether its social media, emails, or referrals, Raffle Leader has you covered.',
     img: publish,
+    backgroundColor: '#b3acff',
   },
 ];
 
