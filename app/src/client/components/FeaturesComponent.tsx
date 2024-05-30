@@ -46,17 +46,27 @@ const FeaturesComponent: React.FC<FeaturesProps> = ({ features }) => {
       const featureRef = featureRefs.current[i];
       if (featureRef) {
         const rect = featureRef.getBoundingClientRect();
-        const top = rect.top + window.scrollY;
-        const bottom = rect.bottom + window.scrollY;
+        const featureTop = rect.top + window.scrollY;
+        const featureBottom = rect.bottom + window.scrollY;
+        const featureCenter = featureTop + (featureBottom - featureTop) / 2;
 
-        if (scrollPosition >= top && scrollPosition < bottom) {
+        if (scrollPosition >= featureTop && scrollPosition <= featureBottom) {
           const nextFeatureIndex = Math.min(i + 1, featureRefs.current.length - 1);
           const nextFeatureRef = featureRefs.current[nextFeatureIndex];
+
           if (nextFeatureRef) {
             const nextRect = nextFeatureRef.getBoundingClientRect();
-            const nextTop = nextRect.top + window.scrollY;
-            const progress = (scrollPosition - top) / (nextTop - top);
-            const interpolatedColor = interpolateColor(features[i].backgroundColor, features[nextFeatureIndex].backgroundColor, progress);
+            const nextFeatureTop = nextRect.top + window.scrollY;
+            const nextFeatureBottom = nextRect.bottom + window.scrollY;
+            const nextFeatureCenter = nextFeatureTop + (nextFeatureBottom - nextFeatureTop) / 2;
+
+            let progress = (scrollPosition - featureTop) / (featureBottom - featureTop);
+
+            if (scrollPosition > featureCenter) {
+              progress = (scrollPosition - featureCenter) / (nextFeatureCenter - featureCenter);
+            }
+
+            const interpolatedColor = interpolateColor(features[i].backgroundColor, features[nextFeatureIndex].backgroundColor, Math.max(0, Math.min(1, progress)));
             setActiveBg(interpolatedColor);
           } else {
             setActiveBg(features[i].backgroundColor);

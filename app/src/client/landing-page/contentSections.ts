@@ -25,19 +25,19 @@ export const features = [
     name: 'Prebuilt No-Code Templates',
     description: 'Get follwers and leads immediately with beautiful templates that fit every need.',
     img: templates,
-    backgroundColor: '#3e30cd',
+    backgroundColor: '#8400ff',
   },
   {
     name: 'Fully Customizeable',
     description: 'Make your raffles exactly as you like them with our intuitive drag and drop editor.',
     img: editor,
-    backgroundColor: '#665cd6',
+    backgroundColor: '#4d01fe',
   },
   {
     name: 'Wide Range of Integrations',
     description: 'Whether its social media, emails, or referrals, Raffle Leader has you covered.',
     img: publish,
-    backgroundColor: '#b3acff',
+    backgroundColor: '#7a5cc2',
   },
 ];
 
