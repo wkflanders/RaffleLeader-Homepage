@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import HowItWorksComponent from './HowItWorksComponent';
 
 // Define TypeScript interfaces for props and feature objects
 interface Feature {
@@ -94,7 +95,7 @@ const FeaturesComponent: React.FC<FeaturesProps> = ({ features }) => {
           ref={(el) => (featureRefs.current[index] = el)}
           data-feature={feature.name}
           key={feature.name}
-          className="snap-start h-screen mt-40 mb-40 p-20 flex flex-col md:flex-row items-center justify-between gap-x-8 sm:gap-x-10"
+          className="snap-start h-screen mt-40 p-20 flex flex-col md:flex-row items-center justify-between gap-x-8 sm:gap-x-10"
         >
           {index % 2 !== 0 ? (
             <>
@@ -131,6 +132,7 @@ const FeaturesComponent: React.FC<FeaturesProps> = ({ features }) => {
           )}
         </div>
       ))}
+      <HowItWorksComponent />
     </div>
   );
 };
