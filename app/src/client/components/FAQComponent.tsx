@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { faqs } from '../landing-page/contentSections';  // Ensure this path is correct
 
 function FAQComponent() {
