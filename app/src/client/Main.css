@@ -33,6 +33,49 @@
   transition: color 0.3s ease; /* Smooth transition for text color */
 }
 
+#stats .stat-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1;
+}
+
+#stats .stat-box:hover {
+  transform: scale(1.3);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+#stats .push-right {
+  transform: translateX(60px);
+}
+
+#stats .push-down {
+  transform: translateY(40px);
+}
+
+#stats .push-left {
+  transform: translateX(-60px);
+}
+
+#stats .push-down-right {
+  transform: translate(40px, 40px);
+}
+
+#stats .push-down-left {
+  transform: translate(-40px, 40px);
+}
+
+#stats .push-up {
+  transform: translateY(-40px);
+}
+
+#stats .push-up-right {
+  transform: translate(40px, -40px);
+}
+
+#stats .push-up-left {
+  transform: translate(-40px, -40px);
+}
+
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
