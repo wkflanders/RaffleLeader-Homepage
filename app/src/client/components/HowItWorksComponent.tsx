@@ -1,20 +1,24 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const HowItWorksComponent: React.FC = () => {
+interface HowItWorksComponentProps {
+  onCompletion: () => void;
+}
+
+const HowItWorksComponent: React.FC<HowItWorksComponentProps> = ({ onCompletion }) => {
   const componentRef = useRef<HTMLDivElement>(null);
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [fillProgress, setFillProgress] = useState([0, 0, 0]);
-  const [scrollPaused, setScrollPaused] = useState(false);
 
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
-      if (scrollPaused) {
-        event.preventDefault();
-        const newProgress = fillProgress[fillProgress.findIndex((progress) => progress < 100)] + event.deltaY * 0.1;
-        const updatedProgress = [...fillProgress];
-        const index = fillProgress.findIndex((progress) => progress < 100);
-        updatedProgress[index] = Math.min(Math.max(newProgress, 0), 100);
-        setFillProgress(updatedProgress);
+      const newProgress = fillProgress[fillProgress.findIndex((progress) => progress < 100)] + event.deltaY * 0.1;
+      const updatedProgress = [...fillProgress];
+      const index = fillProgress.findIndex((progress) => progress < 100);
+      updatedProgress[index] = Math.min(Math.max(newProgress, 0), 100);
+      setFillProgress(updatedProgress);
+
+      if (updatedProgress.every((progress) => progress >= 100)) {
+        onCompletion();
       }
     };
 
@@ -22,28 +26,23 @@ const HowItWorksComponent: React.FC = () => {
       (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting && entry.intersectionRatio >= 0.75 && fillProgress.some((progress) => progress < 100)) {
-          setScrollPaused(true);
-          document.body.style.overflow = 'hidden';
-        } else if (!entry.isIntersecting || fillProgress.every((progress) => progress >= 100)) {
-          setScrollPaused(false);
-          document.body.style.overflow = '';
+          window.addEventListener('wheel', handleScroll, { passive: false });
+        } else {
+          window.removeEventListener('wheel', handleScroll);
         }
       },
-      { threshold: Array.from({ length: 101 }, (_, i) => i / 100) } // Array from 0 to 1 with 0.01 steps
+      { threshold: [0.75] }
     );
 
     if (componentRef.current) {
       observer.observe(componentRef.current);
     }
 
-    window.addEventListener('wheel', handleScroll, { passive: false });
-
     return () => {
       observer.disconnect();
       window.removeEventListener('wheel', handleScroll);
-      document.body.style.overflow = '';
     };
-  }, [fillProgress, scrollPaused]);
+  }, [fillProgress, onCompletion]);
 
   useEffect(() => {
     boxRefs.current.forEach((box, index) => {
@@ -64,7 +63,7 @@ const HowItWorksComponent: React.FC = () => {
   }, [fillProgress]);
 
   return (
-    <div ref={componentRef} className="py-30 mb-60 text-center text-white">
+    <div ref={componentRef} className="py-30 text-center text-white">
       <h2 className="font-overpass text-2xl font-light text-white sm:text-4xl lg:text-6xl mb-30">How It Works</h2>
       <div className="flex justify-center items-stretch mx-auto gap-10" style={{ maxWidth: '1200px' }}>
         <div
