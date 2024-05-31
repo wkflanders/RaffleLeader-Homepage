@@ -71,40 +71,46 @@ const HowItWorksComponent: React.FC<HowItWorksComponentProps> = ({ onCompletion 
   }, [fillProgress]);
 
   return (
-    <div ref={componentRef} className="py-30 text-center text-white">
-      <h2 className="font-overpass text-2xl font-light text-white sm:text-4xl lg:text-6xl mb-30">How It Works</h2>
-      <div className="flex justify-center items-stretch mx-auto gap-10" style={{ maxWidth: '1200px' }}>
+    <div ref={componentRef} className="md:py-30 py-10 text-center text-white">
+      <h2 className="font-overpass text-2xl font-light text-white sm:text-4xl lg:text-6xl mb-5 md:mb-15">How It Works</h2>
+      <div className="flex flex-col md:flex-row justify-between items-stretch mx-auto gap-5 md:gap-10" style={{ maxWidth: '1200px' }}>
         <div
           ref={(el) => (boxRefs.current[0] = el)}
-          className="fill-container flex flex-col justify-center bg-translucent text-white p-20 rounded-3xl border border-white w-1/3"
+          className="fill-container flex flex-col justify-start items-center mx-auto bg-translucent text-white p-15 md:pt-25 rounded-3xl border border-white w-1/2 md:w-1/3 h-96"
+          style={{ flex: 1 }}
         >
           <div className="fill-animation"></div>
-          <h3 className="text-3xl text-left font-semibold text-content">Create Campaign</h3>
-          <p className="text-md text-left text-content">Sign up and create campaigns around your event.</p>
+          <h3 className="md:text-4xl text-xl text-left font-semibold text-content md:mb-4">
+            Create a Giveaway
+          </h3>
+          <p className="lg:text-lg md:text-lg text-md text-left text-content">Pick a template and customize it exactly to your liking.</p>
         </div>
         <div
           ref={(el) => (boxRefs.current[1] = el)}
-          className="fill-container flex flex-col justify-center bg-translucent text-white p-20 rounded-3xl border border-white w-1/3"
+          className="fill-container flex flex-col justify-start items-center mx-auto bg-translucent text-white p-15 md:pt-25 rounded-3xl border border-white w-1/2 md:w-1/3 h-96"
+          style={{ flex: 1 }}
         >
           <div className="fill-animation"></div>
-          <h3 className="text-3xl text-left font-semibold text-content">
-            Share Page <br /> & Let Users <br /> Predict Date
+          <h3 className="md:text-4xl text-xl text-left font-semibold text-content md:mb-4">
+            Share Your Giveaway
           </h3>
-          <p className="text-md text-left text-content">Users sign up and you get new leads.</p>
+          <p className="lg:text-lg md:text-lg text-md text-left text-content">Post your giveaway on your website and social media pages and immediately start gaining new leads and followers.</p>
         </div>
         <div
           ref={(el) => (boxRefs.current[2] = el)}
-          className="fill-container flex flex-col justify-center bg-translucent text-white p-20 rounded-3xl border border-white w-1/3"
+          className="fill-container flex flex-col justify-start items-center mx-auto bg-translucent text-white p-15 md:pt-25 rounded-3xl border border-white w-1/2 md:w-1/3 h-96"
+          style={{ flex: 1 }}
         >
           <div className="fill-animation"></div>
-          <h3 className="text-3xl text-left font-semibold text-content">
-            Winner <br /> Gets Notified <br /> Automatically
+          <h3 className="md:text-4xl text-xl text-left font-semibold text-content md:mb-4">
+            Analyze Your Results
           </h3>
-          <p className="text-md text-left text-content">We automatically notify you and winner when event occurs.</p>
+          <p className="lg:text-lg md:text-lg text-md text-left text-content">Raffle Leader's AI tools help you pick a winner and sift through your new leads</p>
         </div>
       </div>
     </div>
   );
+  
 };
 
 export default HowItWorksComponent;
