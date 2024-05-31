@@ -20,7 +20,7 @@
   width: 100%;
   height: 0;
   background: white;
-  transition: height 0.8s ease-out; /* Added transition for smooth animation */
+  transition: height 0.5s ease-out; /* Added transition for smooth animation */
 }
 
 .text-content {
@@ -30,7 +30,7 @@
 
 .text-background-color {
   color: #9452ff; /* Change to your background color */
-  transition: color 0.5s ease; /* Smooth transition for text color */
+  transition: color 0.3s ease; /* Smooth transition for text color */
 }
 
 @layer utilities {

@@ -25,7 +25,7 @@ const HowItWorksComponent: React.FC<HowItWorksComponentProps> = ({ onCompletion 
           } else {
             setCurrentIndex((prevIndex) => prevIndex + 1);
           }
-        }, 800); // Wait for 1 second before moving to the next box
+        }, 500); // Wait for 1 second before moving to the next box
       }
     };
 
