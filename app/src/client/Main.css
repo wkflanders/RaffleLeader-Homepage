@@ -33,7 +33,6 @@
   transition: color 0.1s ease; /* Smooth transition for text color */
 }
 
-
 @layer utilities {
   /* Chrome, Safari and Opera */
   .no-scrollbar::-webkit-scrollbar {
