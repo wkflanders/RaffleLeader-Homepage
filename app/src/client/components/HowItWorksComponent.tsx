@@ -8,17 +8,24 @@ const HowItWorksComponent: React.FC<HowItWorksComponentProps> = ({ onCompletion 
   const componentRef = useRef<HTMLDivElement>(null);
   const boxRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [fillProgress, setFillProgress] = useState([0, 0, 0]);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const handleScroll = (event: WheelEvent) => {
-      const newProgress = fillProgress[fillProgress.findIndex((progress) => progress < 100)] + event.deltaY * 0.1;
-      const updatedProgress = [...fillProgress];
-      const index = fillProgress.findIndex((progress) => progress < 100);
-      updatedProgress[index] = Math.min(Math.max(newProgress, 0), 100);
-      setFillProgress(updatedProgress);
+      event.preventDefault(); // Prevent default scrolling behavior
 
-      if (updatedProgress.every((progress) => progress >= 100)) {
-        onCompletion();
+      if (currentIndex < fillProgress.length && fillProgress[currentIndex] < 100) {
+        const updatedProgress = [...fillProgress];
+        updatedProgress[currentIndex] = 100;
+        setFillProgress(updatedProgress);
+
+        setTimeout(() => {
+          if (updatedProgress.every((progress) => progress >= 100)) {
+            onCompletion();
+          } else {
+            setCurrentIndex((prevIndex) => prevIndex + 1);
+          }
+        }, 800); // Wait for 1 second before moving to the next box
       }
     };
 
@@ -42,13 +49,14 @@ const HowItWorksComponent: React.FC<HowItWorksComponentProps> = ({ onCompletion 
       observer.disconnect();
       window.removeEventListener('wheel', handleScroll);
     };
-  }, [fillProgress, onCompletion]);
+  }, [fillProgress, currentIndex, onCompletion]);
 
   useEffect(() => {
     boxRefs.current.forEach((box, index) => {
       if (box) {
         const fillElement = box.querySelector('.fill-animation') as HTMLElement;
         fillElement.style.height = `${fillProgress[index]}%`;
+        fillElement.style.transition = 'height 1s'; // Ensure the fill animation takes 1 second
 
         const textElements = box.querySelectorAll('.text-content') as NodeListOf<HTMLElement>;
         textElements.forEach((textElement) => {
