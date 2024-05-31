@@ -160,8 +160,8 @@ export default function LandingPage() {
             <div className='mx-auto max-w-8xl px-6 lg:px-8'>
               <div className='lg:mb-18 mx-auto max-w-3xl text-center'>
                 <h1 className='font-overpass text-9xl font-medium text-gray-900 sm:text-6xl dark:text-white'>
-                  Get leads faster <br>
-                  </br>than ever before.
+                  Get leads at <br>
+                  </br>light speed
                 </h1>
                 <p className='mt-6 mx-auto max-w-2xl text-lg leading-8 text-gray-600 dark:text-white'>
                   Put your <span className='text-raffleleader'>growth on autopilot</span> with customizable<br>
