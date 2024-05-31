@@ -17,6 +17,7 @@ import { UserMenuItems } from '../components/UserMenuItems';
 import { cn } from '../../shared/utils';
 import FAQComponent from '../components/FAQComponent';
 import FeaturesComponent from '../components/FeaturesComponent';
+import StatsComponent from '../components/StatsComponent';
 
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -167,7 +168,7 @@ export default function LandingPage() {
                 </p>
                 <div className='mt-10 flex items-center justify-center gap-x-6'>
                   <a
-                    href={'/login'}
+                    href={'/pricing'}
                     className='rounded-lg px-17 py-4 text-sm font-semibold bg-raffleleader text-white ring-1 ring-inset ring-gray-200 hover:ring-2 hover:ring-gray-200 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:text-white'
                   >
                     Get Started
@@ -193,25 +194,7 @@ export default function LandingPage() {
         <FeaturesComponent features={features} />
 
         {/* Stats section */}
-        <div id='stats' className='mx-auto max-w-7xl sm:px-6 lg:px-8 mt-48 max-w-7xl px-6 lg:px-8'>
-          <div className='mx-auto max-w-2xl text-center'>
-            <p className='mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white'>
-              SUPERCHARGED RESULTS
-            </p>
-          </div>
-          <div className='mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl'>
-            <dl className='grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-2 lg:gap-y-16'>
-              {stats.map((stat) => (
-                <div key={stat.name} className='relative p-14 border-slate-600 border-2 rounded-3xl'>
-                  <dt className='flex justify-center text-base'>
-                    <img src={stat.img} alt={stat.name} className="w-auto h-auto rounded-lg shadow-lg py-4 shadow-none" />
-                  </dt>
-                  <dd className='mt-2 text-base leading-7 text-black'>{stat.description}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-        </div>
+        <StatsComponent stats={stats}/>
 
         {/* Pricing section */}
         <div className='mx-auto max-w-4xl sm:px-6 lg:px-8 mt-60 grid grid-cols-1 gap-y-8 lg:gap-x-8 lg:grid-cols-2'>
@@ -301,7 +284,7 @@ export default function LandingPage() {
           <p className="leading-loose text-3xl mb-6 tracking-wider">And spend more time converting leads, not finding them.</p>
           <div className='mt-10 flex items-center justify-center gap-x-6'>
             <a
-              href={'/login'}
+              href={'/pricing'}
               className='rounded-lg px-17 py-4 text-xl font-semibold bg-white text-raffleleader ring-1 ring-inset ring-gray-200 hover:ring-2 hover:ring-gray-200 hover:bg-gray-200 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:text-white'
             >
               Get Started
