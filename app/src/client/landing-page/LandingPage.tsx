@@ -198,8 +198,10 @@ export default function LandingPage() {
         {howItWorksCompleted && (
           <>
             {/* Stats section */}
-            <StatsComponent stats={stats}/>
-
+            <div className='-mx-6 sm:-mx-6 lg:-mx-8'>
+              <StatsComponent stats={stats} />
+            </div>
+            
             {/* Pricing section */}
             <div className='mx-auto max-w-4xl sm:px-6 lg:px-8 mt-60 grid grid-cols-1 gap-y-8 lg:gap-x-8 lg:grid-cols-2'>
               {tiers.map((tier) => (
