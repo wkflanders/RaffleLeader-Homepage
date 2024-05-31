@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import HowItWorksComponent from './HowItWorksComponent';
 
-// Define TypeScript interfaces for props and feature objects
 interface Feature {
   name: string;
   img: string;
@@ -11,9 +10,10 @@ interface Feature {
 
 interface FeaturesProps {
   features: Feature[];
+  onHowItWorksComplete: () => void;
 }
 
-const FeaturesComponent: React.FC<FeaturesProps> = ({ features }) => {
+const FeaturesComponent: React.FC<FeaturesProps> = ({ features, onHowItWorksComplete }) => {
   const [activeBg, setActiveBg] = useState(features[0].backgroundColor);
   const featureRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -132,7 +132,7 @@ const FeaturesComponent: React.FC<FeaturesProps> = ({ features }) => {
           )}
         </div>
       ))}
-      <HowItWorksComponent />
+      <HowItWorksComponent onCompletion={onHowItWorksComplete} />
     </div>
   );
 };
