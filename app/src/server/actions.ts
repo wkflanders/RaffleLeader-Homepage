@@ -25,18 +25,7 @@ function setupOpenAI() {
   return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 }
 
-export const stripePayment: StripePayment<string, StripePaymentResult> = async (tier, context) => {
-  if (!context.user) {
-    throw new HttpError(401);
-  }
-  const userEmail = context.user.email;
-  if (!userEmail) {
-    throw new HttpError(
-      403,
-      'User needs an email to make a payment. If using the usernameAndPassword Auth method, switch to an Auth method that provides an email.'
-    );
-  }
-
+export const stripePayment: StripePayment<string, StripePaymentResult> = async (tier) => {
   let priceId;
   if (tier === TierIds.YEARLY) {
     priceId = process.env.YEARLY_SUBSCRIPTION_PRICE_ID!;
@@ -46,13 +35,10 @@ export const stripePayment: StripePayment<string, StripePaymentResult> = async (
     throw new HttpError(404, 'Invalid tier');
   }
 
-  let customer: Stripe.Customer;
   let session: Stripe.Checkout.Session;
   try {
-    customer = await fetchStripeCustomer(userEmail);
     session = await createStripeCheckoutSession({
       priceId,
-      customerId: customer.id,
       mode: 'subscription',
     });
   } catch (error: any) {
@@ -61,19 +47,10 @@ export const stripePayment: StripePayment<string, StripePaymentResult> = async (
     throw new HttpError(statusCode, errorMessage);
   }
 
-  await context.entities.User.update({
-    where: {
-      id: context.user.id,
-    },
-    data: {
-      checkoutSessionId: session.id,
-      stripeId: customer.id,
-    },
-  });
-
+  // Return both the session URL and session ID as required by StripePaymentResult
   return {
     sessionUrl: session.url,
-    sessionId: session.id,
+    sessionId: session.id
   };
 };
 
