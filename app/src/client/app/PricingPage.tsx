@@ -1,4 +1,3 @@
-import { useAuth } from 'wasp/client/auth';
 import { stripePayment } from 'wasp/client/operations';
 import { TierIds, STRIPE_CUSTOMER_PORTAL_LINK } from '../../shared/constants';
 import { tiers } from '../landing-page/contentSections';
@@ -9,16 +8,9 @@ import { cn } from '../../shared/utils';
 
 const PricingPage = () => {
   const [isStripePaymentLoading, setIsStripePaymentLoading] = useState<boolean | string>(false);
-
-  const { data: user, isLoading: isUserLoading } = useAuth();
-
   const history = useHistory();
 
   async function handleBuyNowClick(tierId: string) {
-    if (!user) {
-      history.push('/login');
-      return;
-    }
     try {
       setIsStripePaymentLoading(tierId);
       let stripeResults = await stripePayment(tierId);
@@ -51,7 +43,7 @@ const PricingPage = () => {
             <div
               key={tier.id}
               className={cn(
-                'relative flex flex-col grow justify-between rounded-3xl ring-gray-900/10 dark:ring-gray-100/10 overflow-hidden p-8 xl:p-10  border-slate-700 border-2',
+                'relative flex flex-col grow justify-between rounded-3xl ring-gray-900/10 dark:ring-gray-100/10 overflow-hidden p-8 xl:p-10 border-slate-700 border-2',
                 {
                   'ring-2': tier.bestDeal,
                   'ring-1 lg:my-6': !tier.bestDeal,
@@ -90,38 +82,22 @@ const PricingPage = () => {
                   ))}
                 </ul>
               </div>
-              {!!user && user.hasPaid ? (
-                <a
-                  href={STRIPE_CUSTOMER_PORTAL_LINK}
-                  aria-describedby='manage-subscription'
-                  className={cn(
-                    'mt-8 block rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-yellow-400',
-                    {
-                      'bg-yellow-500 text-white hover:text-white shadow-sm hover:bg-yellow-400': tier.bestDeal,
-                      'text-gray-600 ring-1 ring-inset ring-purple-200 hover:ring-purple-400': !tier.bestDeal,
-                    }
-                  )}
-                >
-                  Manage Subscription
-                </a>
-              ) : (
-                <button
-                  onClick={() => handleBuyNowClick(tier.id)}
-                  aria-describedby={tier.id}
-                  className={cn(
-                    {
-                      'bg-raffleleader text-white hover:text-white shadow-sm hover:bg-raffleleader': tier.bestDeal,
-                      'text-gray-600  ring-1 ring-inset ring-raffleleader hover:text-white hover:bg-raffleleader': !tier.bestDeal,
-                    },
-                    {
-                      'cursor-wait': isStripePaymentLoading === tier.id,
-                    },
-                    'mt-8 block rounded-md py-2 px-3 text-center text-sm dark:text-white font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-raffleleader'
-                  )}
-                >
-                  {!!user ? 'Buy plan' : 'Get now'}
-                </button>
-              )}
+              <button
+                onClick={() => handleBuyNowClick(tier.id)}
+                aria-describedby={tier.id}
+                className={cn(
+                  {
+                    'bg-raffleleader text-white hover:text-white shadow-sm hover:bg-raffleleader': tier.bestDeal,
+                    'text-gray-600 ring-1 ring-inset ring-raffleleader hover:text-white hover:bg-raffleleader': !tier.bestDeal,
+                  },
+                  {
+                    'cursor-wait': isStripePaymentLoading === tier.id,
+                  },
+                  'mt-8 block rounded-md py-2 px-3 text-center text-sm dark:text-white font-semibold leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-raffleleader'
+                )}
+              >
+                Buy Plan
+              </button>
             </div>
           ))}
         </div>

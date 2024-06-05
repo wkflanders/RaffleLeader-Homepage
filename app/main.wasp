@@ -222,7 +222,7 @@ page AccountPage {
 
 route CheckoutRoute { path: "/checkout", to: CheckoutPage }
 page CheckoutPage {
-  authRequired: true,
+  authRequired: false,
   component: import Checkout from "@src/client/app/CheckoutPage"
 }
 
