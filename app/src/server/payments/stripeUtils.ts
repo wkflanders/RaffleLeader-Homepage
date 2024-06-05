@@ -30,10 +30,10 @@ export async function createStripeCheckoutSession({
   mode,
 }: {
   priceId: string;
-  customerId: string;
+  customerId?: string;  // Make customerId optional
   mode: 'subscription' | 'payment';
 }) {
-  return await stripe.checkout.sessions.create({
+  const sessionParams: Stripe.Checkout.SessionCreateParams = {
     line_items: [
       {
         price: priceId,
@@ -43,10 +43,21 @@ export async function createStripeCheckoutSession({
     mode: mode,
     success_url: `${DOMAIN}/checkout?success=true`,
     cancel_url: `${DOMAIN}/checkout?canceled=true`,
-    automatic_tax: { enabled: true },
-    customer_update: {
+    automatic_tax: { enabled: true }
+  };
+
+  // Only include the customer ID and customer_update if one is provided
+  if (customerId) {
+    sessionParams.customer = customerId;
+    sessionParams.customer_update = {
       address: 'auto',
-    },
-    customer: customerId,
-  });
+    };
+  } else {
+    // Stripe will prompt for email if customer_email is set to undefined explicitly
+    sessionParams.customer_email = undefined; 
+  }
+
+  return await stripe.checkout.sessions.create(sessionParams);
 }
+
+
