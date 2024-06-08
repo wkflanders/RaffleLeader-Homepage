@@ -9,9 +9,21 @@ import {
   type DeleteTask,
   type UpdateTask,
   type CreateFile,
+  type StripeSignup,
 } from 'wasp/server/operations';
+import {
+  ensureValidPassword,
+  ensureValidEmail,
+  createProviderId,
+  sanitizeAndSerializeProviderData,
+  deserializeAndSanitizeProviderData,
+  findAuthIdentity,
+  createUser,
+} from 'wasp/server/auth'
+import { emailSender } from "wasp/server/email";
 import Stripe from 'stripe';
-import type { GeneratedSchedule, StripePaymentResult } from '../shared/types';
+import crypto from 'crypto';
+import type { GeneratedSchedule, StripePaymentResult, StripeSignupResult } from '../shared/types';
 import { fetchStripeCustomer, createStripeCheckoutSession } from './payments/stripeUtils.js';
 import { TierIds } from '../shared/constants.js';
 import { getUploadFileSignedURLFromS3 } from './file-upload/s3Utils.js';
@@ -25,7 +37,61 @@ function setupOpenAI() {
   return new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 }
 
-export const stripePayment: StripePayment<string, StripePaymentResult> = async (tier) => {
+export const stripeSignup: StripeSignup<string, StripeSignupResult> = async (email) => {
+  try{
+    const providerId = createProviderId('email', email);
+    const existingAuthIdentity = await findAuthIdentity(providerId);
+    if (existingAuthIdentity) {
+      const providerData = deserializeAndSanitizeProviderData<'email'>(existingAuthIdentity.providerData);
+    } else {
+      const password = crypto.randomBytes(10).toString('hex');
+
+      const newUserProviderData = await sanitizeAndSerializeProviderData<'email'>({
+        hashedPassword: password,
+        isEmailVerified: true,
+        emailVerificationSentAt: null,
+        passwordResetSentAt: null,
+      });
+
+      await createUser(
+        providerId,
+        newUserProviderData,
+        {},
+      );
+      try{
+        await emailSender.send({
+            from: {
+              name: "Raffle Leader",
+              email: "noreply.raffleleader@gmail.com",
+            },
+            to: email,
+            subject: "Welcome to Raffle Leader!",
+            text: `Welcome! Your password is: ${password}`,
+            html: `
+                <p>Welcome to Raffle Leader!</p>
+                <p>Your password is: ${password}</p>
+            `,
+          }
+        );
+      } catch (e: any){
+        console.error("Failed to send email: ", e);
+        throw new HttpError(500, "Failed to send email");
+      }
+    }
+  } catch (e: any) {
+    console.log(e);
+    return {
+      result: false,
+      message: e.message
+    }
+  }
+  return {
+    result: true,
+    message: 'User created successfully',
+  }
+}
+
+export const stripePayment: StripePayment<string, StripePaymentResult> = async (tier, context) => {
   let priceId;
   if (tier === TierIds.YEARLY) {
     priceId = process.env.YEARLY_SUBSCRIPTION_PRICE_ID!;
@@ -47,7 +113,6 @@ export const stripePayment: StripePayment<string, StripePaymentResult> = async (
     throw new HttpError(statusCode, errorMessage);
   }
 
-  // Return both the session URL and session ID as required by StripePaymentResult
   return {
     sessionUrl: session.url,
     sessionId: session.id

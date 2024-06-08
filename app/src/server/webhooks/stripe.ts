@@ -3,6 +3,7 @@ import { type MiddlewareConfigFn } from 'wasp/server';
 import { type StripeWebhook } from 'wasp/server/api';
 import express from 'express';
 import { TierIds } from '../../shared/constants.js';
+import { stripeSignup } from '../actions.js';
 
 import Stripe from 'stripe';
 
@@ -30,6 +31,15 @@ export const stripeWebhook: StripeWebhook = async (request, response, context) =
     if (event.type === 'checkout.session.completed') {
       console.log('Checkout session completed');
       const session = event.data.object as Stripe.Checkout.Session;
+      const email = session.customer_email || session.customer_details?.email as string;
+
+      if(!email){
+        return response.status(400).send('Email not found in session');
+      }
+
+      console.log(email);
+      await stripeSignup(email, null);
+
       userStripeId = session.customer as string;
 
       const { line_items } = await stripe.checkout.sessions.retrieve(session.id, {
@@ -54,7 +64,7 @@ export const stripeWebhook: StripeWebhook = async (request, response, context) =
           },
         });
       } else if (line_items?.data[0]?.price?.id === process.env.LIFETIME_SUBSCRIPTION_PRICE_ID) {
-        console.log('Pro subscription purchased');
+        console.log('LIFETIME subscription purchased');
         await context.entities.User.updateMany({
           where: {
             stripeId: userStripeId,
@@ -174,6 +184,7 @@ export const stripeWebhook: StripeWebhook = async (request, response, context) =
     response.json({ received: true });
   } catch (err: any) {
     response.status(400).send(`Webhook Error: ${err?.message}`);
+    console.log(err)
   }
 };
 

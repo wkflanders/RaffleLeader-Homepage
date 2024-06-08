@@ -22,3 +22,12 @@ export type GeneratedSchedule = {
 export type FunctionCallResponse = {
   schedule: GeneratedSchedule[];
 };
+
+export type StripeSignupInput = {
+  email: string;
+}
+
+export type StripeSignupResult = {
+  result: boolean;
+  message: string;
+}

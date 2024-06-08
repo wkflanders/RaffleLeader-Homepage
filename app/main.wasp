@@ -66,7 +66,6 @@ app OpenSaaS {
     provider: SMTP,
     defaultFrom: {
       name: "Raffle Leader",
-      // make sure this address is the same you registered your SendGrid or MailGun account with!
       email: "noreply.raffleleader@gmail.com"
     },
   },
@@ -338,6 +337,9 @@ action createFile {
   entities: [User, File]
 }
 
+action stripeSignup {
+  fn: import { stripeSignup } from "@src/server/actions.js",
+}
 
 // 📚 Queries
 
