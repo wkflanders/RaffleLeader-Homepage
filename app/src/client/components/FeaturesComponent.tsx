@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import HowItWorksComponent from './HowItWorksComponent';
+import LazyVideo from './LazyVideo';
 
 interface Feature {
   name: string;
@@ -95,44 +96,26 @@ const FeaturesComponent: React.FC<FeaturesProps> = ({ features, onHowItWorksComp
           ref={(el) => (featureRefs.current[index] = el)}
           data-feature={feature.name}
           key={feature.name}
-          className="snap-start h-screen mt-40 p-20 flex flex-col md:flex-row items-center justify-between gap-x-8 sm:gap-x-10"
+          className={`snap-start md:h-screen mt-40 flex flex-col md:flex-row ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} items-center justify-between gap-y-4 gap-x-4 sm:gap-x-6 md:gap-x-8`}
         >
-          {index % 2 !== 0 ? (
-            <>
-              <div className="border border-t-2 border-b-2 flex-1 flex justify-center items-center rounded-r-lg -ml-4 p-8">
-                <img src={feature.img} alt={feature.name} className="max-h-full max-w-full rounded-lg shadow-lg" />
-              </div>
-              <div className="flex-1 flex justify-center items-center p-20">
-                <div className="text-center max-w-md">
-                  <h2 className="text-2xl font-light text-white sm:text-4xl lg:text-6xl pb-4 text-left">
-                    {feature.name}
-                  </h2>
-                  <p className="text-base font-light text-white sm:text-lg lg:text-xl text-left">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="flex-1 flex justify-center items-center p-20">
-                <div className="text-center max-w-md">
-                  <h2 className="text-2xl font-light text-white sm:text-4xl lg:text-6xl pb-4 text-left">
-                    {feature.name}
-                  </h2>
-                  <p className="text-base font-light text-white sm:text-lg lg:text-xl text-left">
-                    {feature.description}
-                  </p>
-                </div>
-              </div>
-              <div className="border border-t-2 border-b-2 flex-1 flex justify-center items-center rounded-l-lg -mr-4 p-8">
-                <img src={feature.img} alt={feature.name} className="max-h-full max-w-full rounded-lg shadow-lg" />
-              </div>
-            </>
-          )}
+          <div className="flex-1 flex justify-center items-center rounded-lg order-2 md:order-1">
+            <LazyVideo videoSrc={feature.img} className="w-full max-w-full rounded-lg shadow-lg"/>
+          </div>
+          <div className="flex-1 flex justify-center items-center order-1 md:order-2 p-5">
+            <div className="text-center max-w-md">
+              <h2 className="text-2xl font-light text-white sm:text-4xl lg:text-6xl pb-4 text-left">
+                {feature.name}
+              </h2>
+              <p className="text-base font-light text-white sm:text-lg lg:text-xl text-left">
+                {feature.description}
+              </p>
+            </div>
+          </div>
         </div>
       ))}
-      <HowItWorksComponent onCompletion={onHowItWorksComplete} />
+      <div style={{  marginTop: '100px', marginBottom: '50px' }}>
+        <HowItWorksComponent onCompletion={onHowItWorksComplete} />
+      </div>
     </div>
   );
 };
