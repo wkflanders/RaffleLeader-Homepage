@@ -159,7 +159,7 @@ export default function LandingPage() {
           <div className='py-24 sm:py-32'>
             <div className='mx-auto max-w-8xl px-6 lg:px-8'>
               <div className='lg:mb-18 mx-auto max-w-3xl text-center'>
-                <h1 className='font-overpass text-9xl font-medium text-gray-900 sm:text-6xl dark:text-white'>
+                <h1 className='font-overpass text-5xl sm:text-6xl font-medium text-gray-900 dark:text-white'>
                   Get leads at <br>
                   </br>light speed
                 </h1>
@@ -183,7 +183,7 @@ export default function LandingPage() {
                     alt='App screenshot'
                     width={2432}
                     height={1442}
-                    className='rounded-xl shadow-2xl ring-1 ring-gray-900/10 border-2 border-slate-600'
+                    className='w-full h-auto rounded-lg shadow-xl ring-1 ring-gray-900/10 border border-slate-300'
                   />
                 </div>
               </div>
