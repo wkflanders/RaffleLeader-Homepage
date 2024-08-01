@@ -98,7 +98,7 @@ const FeaturesComponent: React.FC<FeaturesProps> = ({ features, onHowItWorksComp
           key={feature.name}
           className={`snap-start md:h-screen mt-40 flex flex-col md:flex-row ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''} items-center justify-between gap-y-4 gap-x-4 sm:gap-x-6 md:gap-x-8`}
         >
-          <div className="flex-1 flex justify-center items-center rounded-lg order-2 md:order-1">
+          <div className={`flex-1 flex justify-center items-center rounded-lg order-2 md:order-1 px-0 ${index % 2 !== 0 ? 'md:pr-20' : 'md:pl-20'}`}>
             <LazyVideo videoSrc={feature.img} className="w-full max-w-full rounded-lg shadow-lg"/>
           </div>
           <div className="flex-1 flex justify-center items-center order-1 md:order-2 p-5">
