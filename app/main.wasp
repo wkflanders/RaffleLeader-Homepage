@@ -94,6 +94,7 @@ entity User {=psl
   contactFormMessages       ContactFormMessage[]     
   tasks                     Task[]
   files                     File[]
+  licenseKey                String?         @unique
 psl=}
 
 entity GptResponse {=psl
