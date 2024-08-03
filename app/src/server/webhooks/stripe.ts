@@ -37,7 +37,6 @@ export const stripeWebhook: StripeWebhook = async (request, response, context) =
         return response.status(400).send('Email not found in session');
       }
 
-      console.log(email);
       await stripeSignup(email, null);
 
       userStripeId = session.customer as string;
@@ -53,6 +52,11 @@ export const stripeWebhook: StripeWebhook = async (request, response, context) =
        */
       if (line_items?.data[0]?.price?.id === process.env.YEARLY_SUBSCRIPTION_PRICE_ID) {
         console.log('YEARLY subscription purchased');
+        let isNewSubscription = true;
+
+        if(isNewSubscription){
+          const licenseKey = null;
+        }
         await context.entities.User.updateMany({
           where: {
             stripeId: userStripeId,
