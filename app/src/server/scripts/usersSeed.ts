@@ -27,6 +27,7 @@ export function createRandomUser() {
     credits: faker.number.int({ min: 0, max: 3 }),
     checkoutSessionId: null,
     subscriptionTier: faker.helpers.arrayElement([TierIds.YEARLY, TierIds.LIFETIME]),
+    licenseKey: faker.string.uuid(),
   };
   return user;
 }
